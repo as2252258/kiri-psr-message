@@ -1,7 +1,6 @@
 {
     "name": "game-worker/kiri-psr-message",
     "description": "extension psr-http-message interface",
-    "type": "composer-plugin",
     "license": "MIT",
     "autoload": {
         "psr-4": {
