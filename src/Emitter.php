@@ -1,7 +1,8 @@
 <?php
 
-namespace Http\Constrict;
+namespace Http;
 
+use Http\Constrict\ResponseInterface;
 
 interface Emitter
 {

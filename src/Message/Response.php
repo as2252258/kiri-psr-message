@@ -6,7 +6,7 @@ use Exception;
 use JetBrains\PhpStorm\Pure;
 use Kiri\Core\Help;
 use Http\Constrict\ResponseInterface;
-use Http\OnDownloadInterface;
+use Http\Constrict\OnDownloadInterface;
 
 /**
  *

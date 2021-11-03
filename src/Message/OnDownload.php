@@ -2,7 +2,7 @@
 
 namespace Http\Message;
 
-use Http\OnDownloadInterface;
+use Http\Constrict\OnDownloadInterface;
 
 class OnDownload extends Response implements OnDownloadInterface
 {

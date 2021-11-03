@@ -5,7 +5,6 @@ namespace Http\Constrict;
 
 use JetBrains\PhpStorm\Pure;
 use Http\Message\Response;
-use Http\OnDownloadInterface;
 
 /**
  * @mixin Response

@@ -1,10 +1,12 @@
 <?php
 
-namespace Http\Constrict;
+namespace Http;
 
 use Annotation\Inject;
-use Http\OnDownloadInterface;
-
+use Http\Constrict\OnDownloadInterface;
+use Http\Constrict\ResponseInterface;
+use Http\Constrict\RequestInterface;
+use Http\Message\Response;
 
 /**
  *
@@ -22,10 +24,10 @@ class ResponseEmitter implements Emitter
 
 	/**
 	 * @param \Swoole\Http\Response $response
-	 * @param \Http\Message\Response|ResponseInterface $emitter
+	 * @param Response|ResponseInterface $emitter
 	 * @throws \Exception
 	 */
-	public function sender(mixed $response, ResponseInterface|\Http\Message\Response $emitter): void
+	public function sender(mixed $response, ResponseInterface|Response $emitter): void
 	{
 		if (is_array($emitter->getHeaders())) {
 			foreach ($emitter->getHeaders() as $name => $values) {
