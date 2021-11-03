@@ -14,7 +14,6 @@ use Psr\Http\Message\StreamInterface;
 use Http\Message\ServerRequest as RequestMessage;
 use Http\Message\Response as Psr7Response;
 use Server\ServerManager;
-use Http\OnDownloadInterface;
 
 
 /**
