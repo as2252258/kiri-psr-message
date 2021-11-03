@@ -14,6 +14,7 @@
             "email": "as2252258@163.com"
         }
     ],
+    "composer-runtime-api": "^2.0",
     "require": {
         "php": ">=8.0",
         "ext-json": "*",
