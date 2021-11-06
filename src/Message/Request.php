@@ -4,6 +4,7 @@ namespace Http\Message;
 
 use BadMethodCallException;
 use Http\Handler\AuthIdentity;
+use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UriInterface;
 
@@ -91,6 +92,19 @@ class Request implements RequestInterface
 	{
 		return $this->method == $method;
 	}
+
+
+    /**
+     * @return string|null
+     */
+    #[Pure] public function getRequestIp(): ?string
+    {
+        $headers = $this->getHeaders();
+        if (!empty($headers['x-forwarded-for'])) return $headers['x-forwarded-for'][0] ?? null;
+        if (!empty($headers['request-ip'])) return $headers['request-ip'][0] ?? null;
+        if (!empty($headers['remote_addr'])) return $headers['remote_addr'][0] ?? null;
+        return NULL;
+    }
 
 
 	/**
