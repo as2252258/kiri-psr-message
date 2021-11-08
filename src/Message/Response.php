@@ -233,4 +233,18 @@ class Response implements ResponseInterface
         $this->stream->write(Json::to($code, $message, $data, $count));
         return $this;
     }
+
+
+    /**
+     * @param int $code
+     * @param mixed|string $message
+     * @param mixed|array $data
+     * @param mixed|int $count
+     * @return ResponseInterface
+     */
+    public function jsonTo(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
+    {
+        $this->stream->write(Json::to($code, $message, $data, $count));
+        return $this;
+    }
 }
