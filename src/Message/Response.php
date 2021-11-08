@@ -230,6 +230,7 @@ class Response implements ResponseInterface
      */
     public function send(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
     {
-        return Json::to($code, $message, $data, $count);
+        $this->stream->write(Json::to($code, $message, $data, $count));
+        return $this;
     }
 }
