@@ -357,4 +357,16 @@ class Response implements ResponseInterface
 		return Context::getContext('client.info.property');
 	}
 
+
+    /**
+     * @param int $code
+     * @param mixed|string $message
+     * @param mixed|array $data
+     * @param mixed|int $count
+     * @return ResponseInterface
+     */
+    public function send(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
+    {
+        return $this->__call__()->{__FUNCTION__}($code, $message, $data, $count);
+    }
 }

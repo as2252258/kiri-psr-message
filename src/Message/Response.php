@@ -7,6 +7,7 @@ use JetBrains\PhpStorm\Pure;
 use Kiri\Core\Help;
 use Http\Constrict\ResponseInterface;
 use Http\Constrict\OnDownloadInterface;
+use Kiri\Core\Json;
 
 /**
  *
@@ -218,4 +219,17 @@ class Response implements ResponseInterface
 		}
 		return (new OnDownload())->path($path, $isChunk, $size, $offset);
 	}
+
+
+    /**
+     * @param int $code
+     * @param mixed|string $message
+     * @param mixed|array $data
+     * @param mixed|int $count
+     * @return ResponseInterface
+     */
+    public function send(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
+    {
+        return Json::to($code, $message, $data, $count);
+    }
 }
