@@ -3,11 +3,13 @@
 namespace Http\Message;
 
 use Exception;
+use Http\FileInterface;
+use Kiri\Kiri;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 
-class Uploaded implements UploadedFileInterface
+class Uploaded implements UploadedFileInterface, FileInterface
 {
 
 	const ERROR = [
@@ -41,6 +43,28 @@ class Uploaded implements UploadedFileInterface
 		public int    $error
 	)
 	{
+	}
+
+
+	/**
+	 * @return string
+	 */
+	public function getTmpPath(): string
+	{
+		return $this->tmp_name;
+	}
+
+
+	/**
+	 * @return string
+	 */
+	public function rename(): string
+	{
+		if (!empty($this->newName)) {
+			return $this->newName;
+		}
+		$this->newName = $this->name;
+		return $this->newName;
 	}
 
 
