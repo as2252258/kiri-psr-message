@@ -2,7 +2,9 @@
 
 namespace Http;
 
-interface FileInterface
+use Psr\Http\Message\UploadedFileInterface;
+
+interface FileInterface extends UploadedFileInterface
 {
 
 

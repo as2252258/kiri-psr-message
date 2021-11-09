@@ -4,12 +4,10 @@ namespace Http\Message;
 
 use Exception;
 use Http\FileInterface;
-use Kiri\Kiri;
 use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UploadedFileInterface;
 
 
-class Uploaded implements UploadedFileInterface, FileInterface
+class Uploaded implements FileInterface
 {
 
 	const ERROR = [

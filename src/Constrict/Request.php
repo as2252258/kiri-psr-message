@@ -2,6 +2,7 @@
 
 namespace Http\Constrict;
 
+use Http\FileInterface;
 use Kiri\Context;
 use Http\Handler\AuthIdentity;
 use JetBrains\PhpStorm\Pure;
@@ -245,9 +246,9 @@ class Request implements RequestInterface
 
 	/**
 	 * @param string $name
-	 * @return UploadedFileInterface|null
+	 * @return FileInterface|null
 	 */
-	public function file(string $name): ?UploadedFileInterface
+	public function file(string $name): ?FileInterface
 	{
 		$files = $this->__call__()->getUploadedFiles();
 		if (empty($files) || !isset($files[$name])) {

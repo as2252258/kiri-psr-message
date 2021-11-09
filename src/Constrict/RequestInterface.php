@@ -3,6 +3,7 @@
 namespace Http\Constrict;
 
 
+use Http\FileInterface;
 use Http\Handler\AuthIdentity;
 use JetBrains\PhpStorm\Pure;
 use Http\Message\ServerRequest;
@@ -24,9 +25,9 @@ interface RequestInterface extends \Psr\Http\Message\RequestInterface
 
 	/**
 	 * @param string $name
-	 * @return UploadedFileInterface|null
+	 * @return FileInterface|null
 	 */
-	public function file(string $name): ?UploadedFileInterface;
+	public function file(string $name): ?FileInterface;
 
 
 	/**
