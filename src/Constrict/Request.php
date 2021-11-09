@@ -418,7 +418,7 @@ class Request implements RequestInterface
 	 */
 	public function offset(string $field = 'page', string $sizeField = 'size', int $max = 100): float|int
 	{
-		$page = $this->query($field);
+		$page = $this->query($field,1);
 		$size = $this->size($sizeField, $max);
 		$offset = ($page - 1) * $size;
 		if ($offset < 0) {
@@ -435,11 +435,11 @@ class Request implements RequestInterface
 	 */
 	public function size(string $field = 'size', int $max = 100): int
 	{
-		$size = $this->query($field);
+		$size = $this->query($field,20);
 		if ($size > $max) {
 			$size = $max;
 		}
-		return $size;
+		return (int)$size;
 	}
 
 
