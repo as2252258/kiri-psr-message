@@ -3,15 +3,14 @@
 namespace Http\Constrict;
 
 use Http\FileInterface;
-use Kiri\Context;
 use Http\Handler\AuthIdentity;
-use JetBrains\PhpStorm\Pure;
-use Kiri\Kiri;
 use Http\Message\Response;
 use Http\Message\ServerRequest;
 use Http\Message\Uploaded;
+use JetBrains\PhpStorm\Pure;
+use Kiri\Context;
+use Kiri\Kiri;
 use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UploadedFileInterface;
 use Psr\Http\Message\UriInterface;
 
 
@@ -50,11 +49,11 @@ class Request implements RequestInterface
 	}
 
 
-    /**
-     * @param \Swoole\Http\Request $request
-     * @return Request
-     * @throws \Exception
-     */
+	/**
+	 * @param \Swoole\Http\Request $request
+	 * @return Request
+	 * @throws \Exception
+	 */
 	public static function create(\Swoole\Http\Request $request): Request
 	{
 		$serverRequest = ServerRequest::createServerRequest($request);
@@ -260,6 +259,15 @@ class Request implements RequestInterface
 
 
 	/**
+	 * @return array
+	 */
+	public function getHeaderArray(): array
+	{
+		return $this->__call__()->{__FUNCTION__}();
+	}
+
+
+	/**
 	 * @param string|null $name
 	 * @param mixed|null $default
 	 * @return mixed
@@ -419,7 +427,7 @@ class Request implements RequestInterface
 	 */
 	public function offset(string $field = 'page', string $sizeField = 'size', int $max = 100): float|int
 	{
-		$page = $this->query($field,1);
+		$page = $this->query($field, 1);
 		$size = $this->size($sizeField, $max);
 		$offset = ($page - 1) * $size;
 		if ($offset < 0) {
@@ -436,7 +444,7 @@ class Request implements RequestInterface
 	 */
 	public function size(string $field = 'size', int $max = 100): int
 	{
-		$size = $this->query($field,20);
+		$size = $this->query($field, 20);
 		if ($size > $max) {
 			$size = $max;
 		}

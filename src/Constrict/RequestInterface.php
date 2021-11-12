@@ -5,9 +5,8 @@ namespace Http\Constrict;
 
 use Http\FileInterface;
 use Http\Handler\AuthIdentity;
-use JetBrains\PhpStorm\Pure;
 use Http\Message\ServerRequest;
-use Psr\Http\Message\UploadedFileInterface;
+use JetBrains\PhpStorm\Pure;
 
 /**
  *
@@ -28,6 +27,12 @@ interface RequestInterface extends \Psr\Http\Message\RequestInterface
 	 * @return FileInterface|null
 	 */
 	public function file(string $name): ?FileInterface;
+
+
+	/**
+	 * @return array
+	 */
+	public function getHeaderArray(): array;
 
 
 	/**
@@ -135,12 +140,10 @@ interface RequestInterface extends \Psr\Http\Message\RequestInterface
 	public function getClientId(): int;
 
 
-
 	/**
 	 * @return string|null
 	 */
 	#[Pure] public function getAccessControlAllowOrigin(): ?string;
-
 
 
 	/**
