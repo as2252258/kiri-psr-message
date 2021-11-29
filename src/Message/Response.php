@@ -3,10 +3,10 @@
 namespace Http\Message;
 
 use Exception;
+use Http\Constrict\OnDownloadInterface;
+use Http\Constrict\ResponseInterface;
 use JetBrains\PhpStorm\Pure;
 use Kiri\Core\Help;
-use Http\Constrict\ResponseInterface;
-use Http\Constrict\OnDownloadInterface;
 use Kiri\Core\Json;
 
 /**
@@ -22,7 +22,7 @@ class Response implements ResponseInterface
 	const CONTENT_TYPE_HTML = 'text/html; charset=utf-8';
 
 
-    protected string $charset = 'utf8';
+	protected string $charset = 'utf8';
 
 
 	protected int $statusCode = 200;
@@ -189,18 +189,18 @@ class Response implements ResponseInterface
 	}
 
 
-    /**
-     * @param string $charset
-     * @return $this
-     */
-    public function withCharset(string $charset): static
-    {
-        $type = explode('charset', $this->getContentType())[0];
-        $this->withContentType(
-            rtrim($type,';') . ';charset=' . $charset
-        );
-        return $this;
-    }
+	/**
+	 * @param string $charset
+	 * @return $this
+	 */
+	public function withCharset(string $charset): static
+	{
+		$type = explode('charset', $this->getContentType())[0];
+		$this->withContentType(
+			rtrim($type, ';') . ';charset=' . $charset
+		);
+		return $this;
+	}
 
 
 	/**
@@ -221,30 +221,31 @@ class Response implements ResponseInterface
 	}
 
 
-    /**
-     * @param int $code
-     * @param mixed|string $message
-     * @param mixed|array $data
-     * @param mixed|int $count
-     * @return ResponseInterface
-     */
-    public function send(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
-    {
-        $this->stream->write(Json::to($code, $message, $data, $count));
-        return $this;
-    }
+	/**
+	 * @param int $code
+	 * @param mixed|string $message
+	 * @param mixed|array $data
+	 * @param mixed|int $count
+	 * @return ResponseInterface
+	 */
+	public function send(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
+	{
+		$this->stream->write(Json::to($code, $message, $data, $count));
+		return $this;
+	}
 
 
-    /**
-     * @param int $code
-     * @param mixed|string $message
-     * @param mixed|array $data
-     * @param mixed|int $count
-     * @return ResponseInterface
-     */
-    public function jsonTo(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
-    {
-        $this->stream->write(Json::to($code, $message, $data, $count));
-        return $this;
-    }
+	/**
+	 * @param int $code
+	 * @param mixed|string $message
+	 * @param mixed|array $data
+	 * @param mixed|int $count
+	 * @return ResponseInterface
+	 */
+	public function jsonTo(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
+	{
+		$this->stream->write(Json::to($code, $message, $data, $count));
+		return $this->withContentType(ContentType::JSON)
+			->withCharset('utf-8');
+	}
 }
