@@ -29,7 +29,6 @@ class ResponseEmitter implements Emitter
 	 */
 	public function sender(mixed $response, ResponseInterface|Response $emitter): void
 	{
-		var_dump($emitter->getHeaders());
 		if (is_array($emitter->getHeaders())) {
 			foreach ($emitter->getHeaders() as $name => $values) {
 				$response->header($name, implode(';', $values));
