@@ -142,7 +142,7 @@ class ServerRequest extends Request implements ServerRequestInterface
         if (empty($this->parsedBody)) {
             $callback = Context::getContext(self::PARSE_BODY);
 
-            $this->parsedBody = $callback($this->getBody(), $this->serverTarget->post);
+            $this->parsedBody = $callback($this->getBody());
         }
         return $this->parsedBody;
     }
