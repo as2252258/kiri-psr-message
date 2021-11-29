@@ -151,7 +151,7 @@ class Response implements ResponseInterface
 	 * @param string $contentType
 	 * @return static
 	 */
-	public function json($data, string $contentType = 'application/json'): static
+	public function json($data, string $contentType = 'application/json; charset=utf-8'): static
 	{
 		$this->stream->write(json_encode($data));
 
@@ -164,7 +164,7 @@ class Response implements ResponseInterface
 	 * @param string $contentType
 	 * @return static
 	 */
-	public function html($data, string $contentType = 'text/html'): static
+	public function html($data, string $contentType = 'text/html; charset=utf-8'): static
 	{
 		if (!is_string($data)) {
 			$data = json_encode($data);
@@ -181,7 +181,7 @@ class Response implements ResponseInterface
 	 * @param string $contentType
 	 * @return static
 	 */
-	public function xml($data, string $contentType = 'application/xml'): static
+	public function xml($data, string $contentType = 'application/xml; charset=utf-8'): static
 	{
 		$this->stream->write(Help::toXml($data));
 
