@@ -19,7 +19,7 @@ class Response implements ResponseInterface
 	use Message;
 
 
-	const CONTENT_TYPE_HTML = 'text/html';
+	const CONTENT_TYPE_HTML = 'text/html; charset=utf-8';
 
 
     protected string $charset = 'utf8';
