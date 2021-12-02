@@ -20,9 +20,9 @@ trait Message
 
 
 	/**
-	 * @var StreamInterface
+	 * @var StreamInterface|null
 	 */
-	protected StreamInterface $stream;
+	protected ?StreamInterface $stream = null;
 
 
 	/**
@@ -269,6 +269,9 @@ trait Message
 	 */
 	public function getBody(): StreamInterface
 	{
+		if (!$this->stream) {
+			$this->stream = new Stream('');
+		}
 		return $this->stream;
 	}
 
