@@ -25,7 +25,7 @@ class Parse
 		return match ($start) {
 			'<' => Xml::toArray($content),
 			'[', '{' => json_decode($content, true),
-			default => call_user_func(function () use ($content) {
+			default => call_user_func(static function () use ($content) {
 				parse_str($content, $array);
 				return $array;
 			})
