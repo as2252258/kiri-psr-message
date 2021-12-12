@@ -61,6 +61,30 @@ interface ResponseInterface extends \Psr\Http\Message\ResponseInterface
     public function jsonTo(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface;
 
 
+    /**
+     * @param array $data
+     * @param int $count
+     * @param string $message
+     * @return ResponseInterface
+     */
+    public function data(array $data, int $count, string $message = 'ok'): ResponseInterface;
+
+
+    /**
+     * @param int $code
+     * @param string $message
+     * @return ResponseInterface
+     */
+    public function failure(int $code, string $message = 'ok'): ResponseInterface;
+
+
+
+    /**
+     * @param string $message
+     * @return ResponseInterface
+     */
+    public function msg(string $message = 'ok'): ResponseInterface;
+
 	/**
 	 * @return string|null
 	 */
