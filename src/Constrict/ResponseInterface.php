@@ -67,7 +67,7 @@ interface ResponseInterface extends \Psr\Http\Message\ResponseInterface
      * @param string $message
      * @return ResponseInterface
      */
-    public function data(array $data, int $count, string $message = 'ok'): ResponseInterface;
+    public function data(array $data, int $count = 0, string $message = 'ok'): ResponseInterface;
 
 
     /**
