@@ -298,7 +298,7 @@ class Response implements ResponseInterface
      * @param string $message
      * @return ResponseInterface
      */
-    public function msg(string $message = 'ok')
+    public function msg(string $message = 'ok'): ResponseInterface
     {
         return $this->_end(0, $message, [], 0);
     }
