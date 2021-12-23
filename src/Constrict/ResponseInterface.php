@@ -3,8 +3,8 @@
 namespace Http\Constrict;
 
 
-use JetBrains\PhpStorm\Pure;
 use Http\Message\Response;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * @mixin Response
@@ -41,49 +41,48 @@ interface ResponseInterface extends \Psr\Http\Message\ResponseInterface
 	public function json($data): ResponseInterface;
 
 
-    /**
-     * @param int $code
-     * @param mixed $message
-     * @param mixed $data
-     * @param mixed $count
-     * @return ResponseInterface
-     */
-    public function send(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface;
+	/**
+	 * @param int $code
+	 * @param mixed $message
+	 * @param mixed $data
+	 * @param mixed $count
+	 * @return ResponseInterface
+	 */
+	public function send(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface;
 
 
-    /**
-     * @param int $code
-     * @param mixed $message
-     * @param mixed $data
-     * @param mixed $count
-     * @return ResponseInterface
-     */
-    public function jsonTo(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface;
+	/**
+	 * @param int $code
+	 * @param mixed $message
+	 * @param mixed $data
+	 * @param mixed $count
+	 * @return ResponseInterface
+	 */
+	public function jsonTo(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface;
 
 
-    /**
-     * @param array $data
-     * @param int $count
-     * @param string $message
-     * @return ResponseInterface
-     */
-    public function data(array $data, int $count = 0, string $message = 'ok'): ResponseInterface;
+	/**
+	 * @param array $data
+	 * @param int $count
+	 * @param string $message
+	 * @return ResponseInterface
+	 */
+	public function data(array $data, int $count = 0, string $message = 'ok'): ResponseInterface;
 
 
-    /**
-     * @param int $code
-     * @param string $message
-     * @return ResponseInterface
-     */
-    public function failure(int $code, string $message = 'ok'): ResponseInterface;
+	/**
+	 * @param int $code
+	 * @param string $message
+	 * @return ResponseInterface
+	 */
+	public function failure(int $code, string $message = 'ok'): ResponseInterface;
 
 
-
-    /**
-     * @param string $message
-     * @return ResponseInterface
-     */
-    public function msg(string $message = 'ok'): ResponseInterface;
+	/**
+	 * @param string $message
+	 * @return ResponseInterface
+	 */
+	public function msg(string $message = 'ok'): ResponseInterface;
 
 	/**
 	 * @return string|null
@@ -95,6 +94,15 @@ interface ResponseInterface extends \Psr\Http\Message\ResponseInterface
 	 * @return bool
 	 */
 	public function hasContentType(): bool;
+
+
+	/**
+	 * @param string $path
+	 * @param string|null $domain
+	 * @param int $statusCode
+	 * @return mixed
+	 */
+	public function redirect(string $path, string $domain = null, int $statusCode = 302): static;
 
 
 	/**
@@ -125,12 +133,10 @@ interface ResponseInterface extends \Psr\Http\Message\ResponseInterface
 	public function withAccessControlAllowHeaders(?string $value): ResponseInterface;
 
 
-
 	/**
 	 * @return string|null
 	 */
 	#[Pure] public function getAccessControlAllowOrigin(): ?string;
-
 
 
 	/**
