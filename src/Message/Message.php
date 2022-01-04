@@ -3,6 +3,7 @@
 namespace Http\Message;
 
 use JetBrains\PhpStorm\Pure;
+use Kiri\Kiri;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
@@ -121,7 +122,8 @@ trait Message
 	{
 		[$headers, $body] = explode("\r\n\r\n", $headerString);
 
-		$this->stream = new Stream($body);
+		$this->stream = Kiri::getDi()->make(Stream::class, ['']);
+		$this->stream->write($body);
 
 		return $this->slip_headers($headers);
 	}

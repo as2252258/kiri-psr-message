@@ -8,6 +8,8 @@ use Http\Constrict\ResponseInterface;
 use JetBrains\PhpStorm\Pure;
 use Kiri\Core\Help;
 use Kiri\Core\Json;
+use Kiri\Kiri;
+use ReflectionException;
 
 /**
  *
@@ -33,10 +35,11 @@ class Response implements ResponseInterface
 
 	/**
 	 * __construct
+	 * @throws ReflectionException
 	 */
 	public function __construct()
 	{
-		$this->stream = new Stream();
+		$this->stream = Kiri::getDi()->make(Stream::class, ['']);
 	}
 
 
