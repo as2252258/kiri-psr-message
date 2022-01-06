@@ -3,7 +3,7 @@
 namespace Http\Constrict;
 
 use Http\FileInterface;
-use Http\Handler\AuthIdentity;
+use Http\Handler\AuthorizationInterface;
 use Http\Message\Response;
 use Http\Message\ServerRequest;
 use Http\Message\Uploaded;
@@ -492,9 +492,9 @@ class Request implements RequestInterface
 
 
 	/**
-	 * @param AuthIdentity $authority
+	 * @param AuthorizationInterface $authority
 	 */
-	public function setAuthority(AuthIdentity $authority): void
+	public function setAuthority(AuthorizationInterface $authority): void
 	{
 		$this->__call__()->{__FUNCTION__}($authority);
 	}

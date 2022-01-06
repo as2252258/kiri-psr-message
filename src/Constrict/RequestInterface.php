@@ -4,7 +4,7 @@ namespace Http\Constrict;
 
 
 use Http\FileInterface;
-use Http\Handler\AuthIdentity;
+use Http\Handler\AuthorizationInterface;
 use Http\Message\ServerRequest;
 use JetBrains\PhpStorm\Pure;
 
@@ -137,9 +137,9 @@ interface RequestInterface extends \Psr\Http\Message\RequestInterface
 	#[Pure] public function getStartTime(): float;
 
 	/**
-	 * @param AuthIdentity $authority
+	 * @param AuthorizationInterface $authority
 	 */
-	public function setAuthority(AuthIdentity $authority): void;
+	public function setAuthority(AuthorizationInterface $authority): void;
 
 	/**
 	 * @return int

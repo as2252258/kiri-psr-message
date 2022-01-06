@@ -3,7 +3,7 @@
 namespace Http\Message;
 
 use BadMethodCallException;
-use Http\Handler\AuthIdentity;
+use Http\Handler\AuthorizationInterface;
 use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UriInterface;
@@ -31,15 +31,15 @@ class Request implements RequestInterface
 
 
 	/**
-	 * @var AuthIdentity|null
+	 * @var AuthorizationInterface|null
 	 */
-	public ?AuthIdentity $authority = null;
+	public ?AuthorizationInterface $authority = null;
 
 
 	/**
-	 * @param AuthIdentity|null $authIdentity
+	 * @param AuthorizationInterface|null $authIdentity
 	 */
-	public function setAuthority(?AuthIdentity $authIdentity): void
+	public function setAuthority(?AuthorizationInterface $authIdentity): void
 	{
 		$this->authority = $authIdentity;
 	}
