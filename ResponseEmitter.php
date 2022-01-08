@@ -2,7 +2,7 @@
 
 namespace Http;
 
-use Note\Inject;
+use Kiri\Annotation\Inject;
 use Http\Constrict\OnDownloadInterface;
 use Http\Constrict\ResponseInterface;
 use Http\Constrict\RequestInterface;
