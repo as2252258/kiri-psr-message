@@ -1,19 +1,19 @@
 <?php
 
 
-namespace Http\Constrict;
+namespace Kiri\Message\Constrict;
 
 
-use Http\Message\ContentType;
-use Http\Message\Response as Psr7Response;
-use Http\Message\ServerRequest as RequestMessage;
+use Kiri\Message\ContentType;
+use Kiri\Message\Response as Psr7Response;
+use Kiri\Message\ServerRequest as RequestMessage;
 use JetBrains\PhpStorm\Pure;
 use Kiri\Abstracts\Config;
 use Kiri\Context;
 use Kiri\Exception\ConfigException;
 use Kiri\Kiri;
 use Psr\Http\Message\StreamInterface;
-use Server\ServerManager;
+use Kiri\Server\ServerManager;
 
 
 /**

@@ -1,12 +1,12 @@
 <?php
 
-namespace Http\Constrict;
+namespace Kiri\Message\Constrict;
 
-use Http\FileInterface;
-use Http\Handler\AuthorizationInterface;
-use Http\Message\Response;
-use Http\Message\ServerRequest;
-use Http\Message\Uploaded;
+use Kiri\Message\FileInterface;
+use Kiri\Message\Handler\AuthorizationInterface;
+use Kiri\Message\Response;
+use Kiri\Message\ServerRequest;
+use Kiri\Message\Uploaded;
 use JetBrains\PhpStorm\Pure;
 use Kiri\Context;
 use Kiri\Kiri;

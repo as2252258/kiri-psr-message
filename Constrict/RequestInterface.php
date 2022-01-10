@@ -1,11 +1,11 @@
 <?php
 
-namespace Http\Constrict;
+namespace Kiri\Message\Constrict;
 
 
-use Http\FileInterface;
-use Http\Handler\AuthorizationInterface;
-use Http\Message\ServerRequest;
+use Kiri\Message\FileInterface;
+use Kiri\Message\Handler\AuthorizationInterface;
+use Kiri\Message\ServerRequest;
 use JetBrains\PhpStorm\Pure;
 
 /**

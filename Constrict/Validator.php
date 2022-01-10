@@ -1,6 +1,6 @@
 <?php
 
-namespace Http\Constrict;
+namespace Kiri\Message\Constrict;
 
 class Validator
 {

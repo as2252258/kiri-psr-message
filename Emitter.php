@@ -1,8 +1,8 @@
 <?php
 
-namespace Http;
+namespace Kiri\Message;
 
-use Http\Constrict\ResponseInterface;
+use Kiri\Message\Constrict\ResponseInterface;
 
 interface Emitter
 {

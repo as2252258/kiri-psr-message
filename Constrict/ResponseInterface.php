@@ -1,9 +1,9 @@
 <?php
 
-namespace Http\Constrict;
+namespace Kiri\Message\Constrict;
 
 
-use Http\Message\Response;
+use Kiri\Message\Response;
 use JetBrains\PhpStorm\Pure;
 
 /**

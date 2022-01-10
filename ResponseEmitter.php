@@ -1,12 +1,12 @@
 <?php
 
-namespace Http;
+namespace Kiri\Message;
 
 use Kiri\Annotation\Inject;
-use Http\Constrict\OnDownloadInterface;
-use Http\Constrict\ResponseInterface;
-use Http\Constrict\RequestInterface;
-use Http\Message\Response;
+use Kiri\Message\Constrict\OnDownloadInterface;
+use Kiri\Message\Constrict\ResponseInterface;
+use Kiri\Message\Constrict\RequestInterface;
+use Kiri\Message\Response;
 
 /**
  *

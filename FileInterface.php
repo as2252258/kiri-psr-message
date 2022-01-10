@@ -1,6 +1,6 @@
 <?php
 
-namespace Http;
+namespace Kiri\Message;
 
 use Psr\Http\Message\UploadedFileInterface;
 
