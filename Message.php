@@ -3,7 +3,7 @@
 namespace Kiri\Message;
 
 use JetBrains\PhpStorm\Pure;
-use Kiri\Kiri;
+use Kiri;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 

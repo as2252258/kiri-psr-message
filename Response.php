@@ -8,7 +8,7 @@ use Kiri\Message\Constrict\ResponseInterface;
 use JetBrains\PhpStorm\Pure;
 use Kiri\Core\Help;
 use Kiri\Core\Json;
-use Kiri\Kiri;
+use Kiri;
 use ReflectionException;
 
 /**

@@ -9,7 +9,7 @@ use Kiri\Message\ServerRequest;
 use Kiri\Message\Uploaded;
 use JetBrains\PhpStorm\Pure;
 use Kiri\Context;
-use Kiri\Kiri;
+use Kiri;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
 

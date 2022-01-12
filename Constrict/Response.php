@@ -11,7 +11,7 @@ use JetBrains\PhpStorm\Pure;
 use Kiri\Abstracts\Config;
 use Kiri\Context;
 use Kiri\Exception\ConfigException;
-use Kiri\Kiri;
+use Kiri;
 use Psr\Http\Message\StreamInterface;
 use Kiri\Server\ServerManager;
 
