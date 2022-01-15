@@ -4,16 +4,16 @@
 namespace Kiri\Message\Constrict;
 
 
-use Kiri\Message\ContentType;
-use Kiri\Message\Response as Psr7Response;
-use Kiri\Message\ServerRequest as RequestMessage;
 use JetBrains\PhpStorm\Pure;
+use Kiri;
 use Kiri\Abstracts\Config;
 use Kiri\Context;
 use Kiri\Exception\ConfigException;
-use Kiri;
-use Psr\Http\Message\StreamInterface;
+use Kiri\Message\ContentType;
+use Kiri\Message\Response as Psr7Response;
+use Kiri\Message\ServerRequest as RequestMessage;
 use Kiri\Server\ServerManager;
+use Psr\Http\Message\StreamInterface;
 
 
 /**
@@ -40,6 +40,20 @@ class Response implements ResponseInterface
 		]);
 		$this->withContentType($contentType['format'] ?? ContentType::JSON)
 			->withCharset($contentType['charset'] ?? 'utf-8');
+	}
+
+
+	/**
+	 * @param $name
+	 * @param $args
+	 * @return mixed
+	 */
+	public function __call($name, $args)
+	{
+		if (!method_exists($this, $name)) {
+			return $this->__call__()->{$name}(...$args);
+		}
+		return $this->{$name}(...$args);
 	}
 
 
