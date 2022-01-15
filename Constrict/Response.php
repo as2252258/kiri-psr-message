@@ -58,6 +58,24 @@ class Response implements ResponseInterface
 
 
 	/**
+	 * @return array|null
+	 */
+	public function getCookieParams(): ?array
+	{
+		return $this->__call__()->{__FUNCTION__}();
+	}
+
+
+	/**
+	 * @return array
+	 */
+	public function getHeaderArray(): array
+	{
+		return $this->__call__()->{__FUNCTION__}();
+	}
+
+
+	/**
 	 * @param string $name
 	 * @return mixed
 	 */
