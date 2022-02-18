@@ -30,13 +30,6 @@ interface RequestInterface extends \Psr\Http\Message\RequestInterface
 
 
 	/**
-	 * @param array $filters
-	 * @return Validator
-	 */
-	public function validator(array $filters): Validator;
-
-
-	/**
 	 * @return array
 	 */
 	public function getHeaderArray(): array;

@@ -283,25 +283,6 @@ class Request implements RequestInterface
 
 
 	/**
-	 * @param array $filters
-	 * @return Validator
-	 * @throws \Exception
-	 */
-	public function validator(array $filters): Validator
-	{
-		$validator = \validator\Validator::getInstance();
-		$validator->setParams($this->getParsedBody());
-		foreach ($filters as $val) {
-			$field = array_shift($val);
-			if (!empty($val)) {
-				$validator->make($field, $val);
-			}
-		}
-		return new Validator($validator->validation(), $validator->getError());
-	}
-
-
-	/**
 	 * @return array
 	 */
 	public function all(): array
