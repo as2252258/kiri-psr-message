@@ -77,8 +77,8 @@ class ServerRequest extends Request implements ServerRequestInterface
 		$serverRequest->withServerTarget($request);
 		$serverRequest->withCookieParams($request->cookie);
 		$serverRequest->withUri(Uri::parseUri($request));
-		$serverRequest->withQueryParams($request->get ?? []);
-		$serverRequest->withUploadedFiles($request->files ?? []);
+		$serverRequest->withQueryParams($request->get);
+		$serverRequest->withUploadedFiles($request->files);
 		$serverRequest->withMethod($request->getMethod());
 		$serverRequest->withParsedBody($request->post);
 		return $serverRequest;
