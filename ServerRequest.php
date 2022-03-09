@@ -104,10 +104,10 @@ class ServerRequest extends Request implements ServerRequestInterface
 
 
 	/**
-	 * @param array $query
+	 * @param null|array $query
 	 * @return ServerRequestInterface
 	 */
-	public function withQueryParams(array $query): ServerRequestInterface
+	public function withQueryParams(?array $query): ServerRequestInterface
 	{
 		$this->queryParams = $query;
 		return $this;
@@ -124,10 +124,10 @@ class ServerRequest extends Request implements ServerRequestInterface
 
 
 	/**
-	 * @param array $uploadedFiles
+	 * @param array|null $uploadedFiles
 	 * @return ServerRequestInterface
 	 */
-	public function withUploadedFiles(array $uploadedFiles): ServerRequestInterface
+	public function withUploadedFiles(?array $uploadedFiles): ServerRequestInterface
 	{
 		$this->uploadedFiles = $uploadedFiles;
 		return $this;
