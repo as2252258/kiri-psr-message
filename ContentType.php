@@ -376,7 +376,7 @@ enum ContentType
      */
     public function toString(): string
     {
-        return match ($method) {
+        return match ($this) {
             self::X => 'application/x-',
             self::OCTET_STREAM => 'application/octet-stream',
             self::PDF => 'application/pdf',
