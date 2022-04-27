@@ -222,6 +222,16 @@ class Response implements ResponseInterface
 	}
 
 
+    /**
+     * @param mixed $content
+     * @return ResponseInterface|Psr7Response
+     */
+	public function withContent(mixed $content): ResponseInterface|Psr7Response
+	{
+		return $this->__call__()->{__FUNCTION__}($content);
+	}
+
+
 	/**
 	 * @return string
 	 */
