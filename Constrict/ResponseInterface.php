@@ -3,6 +3,7 @@
 namespace Kiri\Message\Constrict;
 
 
+use Kiri\Message\ContentType;
 use Kiri\Message\Response;
 use JetBrains\PhpStorm\Pure;
 
@@ -106,10 +107,10 @@ interface ResponseInterface extends \Psr\Http\Message\ResponseInterface
 
 
 	/**
-	 * @param string $type
+	 * @param ContentType $type
 	 * @return ResponseInterface
 	 */
-	public function withContentType(string $type): ResponseInterface;
+	public function withContentType(ContentType $type): ResponseInterface;
 
 
 	/**

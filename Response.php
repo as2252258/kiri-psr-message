@@ -102,12 +102,12 @@ class Response implements ResponseInterface
 
 
     /**
-     * @param string $type
+     * @param ContentType $type
      * @return Response
      */
-    public function withContentType(string $type): static
+    public function withContentType(ContentType $type): static
     {
-        return $this->withHeader('Content-Type', $type);
+        return $this->withHeader('Content-Type', $type->toString());
     }
 
 
@@ -151,10 +151,10 @@ class Response implements ResponseInterface
 
     /**
      * @param $data
-     * @param string $contentType
+     * @param ContentType $contentType
      * @return static
      */
-    public function json($data, string $contentType = 'application/json'): static
+    public function json($data, ContentType $contentType = ContentType::JSON): static
     {
         $this->stream->write(json_encode($data));
 
@@ -164,10 +164,10 @@ class Response implements ResponseInterface
 
     /**
      * @param $data
-     * @param string $contentType
+     * @param ContentType $contentType
      * @return static
      */
-    public function html($data, string $contentType = 'text/html'): static
+    public function html($data, ContentType $contentType = ContentType::HTML): static
     {
         if (!is_string($data)) {
             $data = json_encode($data);
@@ -192,10 +192,10 @@ class Response implements ResponseInterface
 
     /**
      * @param $data
-     * @param string $contentType
+     * @param ContentType $contentType
      * @return static
      */
-    public function xml($data, string $contentType = 'application/xml; charset=utf-8'): static
+    public function xml($data, ContentType $contentType = ContentType::XML): static
     {
         $this->stream->write(Help::toXml($data));
 

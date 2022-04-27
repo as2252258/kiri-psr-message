@@ -3,370 +3,652 @@
 namespace Kiri\Message;
 
 
-class ContentType
+enum ContentType
 {
 
-    const X = 'application/x-';
-    const OCTET_STREAM = 'application/octet-stream';
-    const PDF = 'application/pdf';
-    const AI = 'application/postscript';
-    const ATOM_XML = 'application/atom+xml';
-    const JS = 'application/ecmascript';
-    const EDI_X12 = 'application/EDI-X12';
-    const EDIFACT = 'application/EDIFACT';
-    const JSON = 'application/json; charset=utf-8';
-    const JAVASCRIPT = 'application/javascript; charset=utf-8';
-    const OGG = 'application/ogg';
-    const RDF = 'application/rdf+xml';
-    const RSS_XML = 'application/rss+xml';
-    const SOAP_XML = 'application/soap+xml';
-    const WOFF = 'application/font-woff';
-    const XHTML_XML = 'application/xhtml+xml';
-    const XML = 'application/xml; charset=utf-8';
-    const DTD = 'application/xml-dtd';
-    const XOP_XML = 'application/xop+xml';
-    const ZIP = 'application/zip';
-    const GZIP = 'application/gzip';
-    const XLS = 'application/x-xls';
-    const X_001 = 'application/x-001';
-    const X_301 = 'application/x-301';
-    const X_906 = 'application/x-906';
-    const A11 = 'application/x-a11';
-    const AWF = 'application/vnd.adobe.workflow';
-    const BMP = 'application/x-bmp';
-    const C4T = 'application/x-c4t';
-    const CAL = 'application/x-cals';
-    const CDF = 'application/x-netcdf';
-    const CEL = 'application/x-cel';
-    const CG4 = 'application/x-g4';
-    const CIT = 'application/x-cit';
-    const BOT = 'application/x-bot';
-    const C90 = 'application/x-c90';
-    const CAT = 'application/vnd.ms-pki.seccat';
-    const CDR = 'application/x-cdr';
-    const CER = 'application/x-x509-ca-cert';
-    const CGM = 'application/x-cgm';
-    const CMX = 'application/x-cmx';
-    const CRL = 'application/pkix-crl';
-    const CSI = 'application/x-csi';
-    const CUT = 'application/x-cut';
-    const DBM = 'application/x-dbm';
-    const CMP = 'application/x-cmp';
-    const COT = 'application/x-cot';
-    const CRT = 'application/x-x509-ca-cert';
-    const DBF = 'application/x-dbf';
-    const DBX = 'application/x-dbx';
-    const DCX = 'application/x-dcx';
-    const DGN = 'application/x-dgn';
-    const DLL = 'application/x-msdownload';
-    const DOT = 'application/msword';
-    const DER = 'application/x-x509-ca-cert';
-    const DIB = 'application/x-dib';
-    const DOC = 'application/msword';
-    const DRW = 'application/x-drw';
-    const DWF = 'application/x-dwf';
-    const DXB = 'application/x-dxb';
-    const EDN = 'application/vnd.adobe.edn';
-    const DWG = 'application/x-dwg';
-    const DXF = 'application/x-dxf';
-    const EMF = 'application/x-emf';
-    const EPI = 'application/x-epi';
-    const EPS = 'application/postscript';
-    const EXE = 'application/x-msdownload';
-    const FDF = 'application/vnd.fdf';
-    const X_EPS = 'application/x-ps';
-    const ETD = 'application/x-ebx';
-    const FIF = 'application/fractals';
-    const FRM = 'application/x-frm';
-    const GBR = 'application/x-gbr';
-    const G4 = 'application/x-g4';
-    const GL2 = 'application/x-gl2';
-    const HGL = 'application/x-hgl';
-    const HPG = 'application/x-hpgl';
-    const HQX = 'application/mac-binhex40';
-    const HTA = 'application/hta';
-    const GP4 = 'application/x-gp4';
-    const HMR = 'application/x-hmr';
-    const HPL = 'application/x-hpl';
-    const HRF = 'application/x-hrf';
-    const ICB = 'application/x-icb';
-    const ICO = 'application/x-ico';
-    const IG4 = 'application/x-g4';
-    const III = 'application/x-iphone';
-    const INS = 'application/x-internet-signup';
-    const IFF = 'application/x-iff';
-    const IGS = 'application/x-igs';
-    const IMG = 'application/x-img';
-    const ISP = 'application/x-internet-signup';
-    const JPE = 'application/x-jpe';
-    const X_JAVASCRIPT = 'application/x-javascript';
-    const JPG = 'application/x-jpg';
-    const LAR = 'application/x-laplayer-reg';
-    const LATEX = 'application/x-latex';
-    const LBM = 'application/x-lbm';
-    const LS = 'application/x-javascript';
-    const LTR = 'application/x-ltr';
-    const MAN = 'application/x-troff-man';
-    const MDB = 'application/msaccess';
-    const MAC = 'application/x-mac';
-    const X_MDB = 'application/x-mdb';
-    const MFP = 'application/x-shockwave-flash';
-    const MI = 'application/x-mi';
-    const MIL = 'application/x-mil';
-    const MOCHA = 'application/x-javascript';
-    const MPD = 'application/vnd.ms-project';
-    const MPP = 'application/vnd.ms-project';
-    const MPT = 'application/vnd.ms-project';
-    const MPW = 'application/vnd.ms-project';
-    const MPX = 'application/vnd.ms-project';
-    const MXP = 'application/x-mmxp';
-    const NRF = 'application/x-nrf';
-    const OUT = 'application/x-out';
-    const P12 = 'application/x-pkcs12';
-    const P7C = 'application/pkcs7-mime';
-    const P7R = 'application/x-pkcs7-certreqresp';
-    const PC5 = 'application/x-pc5';
-    const PCL = 'application/x-pcl';
-    const PDX = 'application/vnd.adobe.pdx';
-    const PGL = 'application/x-pgl';
-    const PKO = 'application/vnd.ms-pki.pko';
-    const P10 = 'application/pkcs10';
-    const P7B = 'application/x-pkcs7-certificates';
-    const P7M = 'application/pkcs7-mime';
-    const P7S = 'application/pkcs7-signature';
-    const PCI = 'application/x-pci';
-    const PCX = 'application/x-pcx';
-    const PFX = 'application/x-pkcs12';
-    const PIC = 'application/x-pic';
-    const PL = 'application/x-perl';
-    const PLT = 'application/x-plt';
-    const PNG = 'application/x-png';
-    const PPA = 'application/vnd.ms-powerpoint';
-    const PPS = 'application/vnd.ms-powerpoint';
-    const X_PPT = 'application/x-ppt';
-    const PRF = 'application/pics-rules';
-    const PRT = 'application/x-prt';
-    const PS = 'application/postscript';
-    const PWZ = 'application/vnd.ms-powerpoint';
-    const RA = 'audio/vnd.rn-realaudio';
-    const RAS = 'application/x-ras';
-    const POT = 'application/vnd.ms-powerpoint';
-    const PPM = 'application/x-ppm';
-    const PPT = 'application/vnd.ms-powerpoint';
-    const PR = 'application/x-pr';
-    const PRN = 'application/x-prn';
-    const X_PS = 'application/x-ps';
-    const PTN = 'application/x-ptn';
-    const RED = 'application/x-red';
-    const RJS = 'application/vnd.rn-realsystem-rjs';
-    const RLC = 'application/x-rlc';
-    const RM = 'application/vnd.rn-realmedia';
-    const RAT = 'application/rat-file';
-    const REC = 'application/vnd.rn-recording';
-    const RGB = 'application/x-rgb';
-    const RJT = 'application/vnd.rn-realsystem-rjt';
-    const RLE = 'application/x-rle';
-    const RMF = 'application/vnd.adobe.rmf';
-    const RMJ = 'application/vnd.rn-realsystem-rmj';
-    const RMP = 'application/vnd.rn-rn_music_package';
-    const RMVB = 'application/vnd.rn-realmedia-vbr';
-    const RNX = 'application/vnd.rn-realplayer';
-    const RPM = 'audio/x-pn-realaudio-plugin';
-    const RMS = 'application/vnd.rn-realmedia-secure';
-    const RMX = 'application/vnd.rn-realsystem-rmx';
-    const RSML = 'application/vnd.rn-rsml';
-    const RTF = 'application/msword';
-    const RV = 'video/vnd.rn-realvideo';
-    const SAT = 'application/x-sat';
-    const SDW = 'application/x-sdw';
-    const SLB = 'application/x-slb';
-    const X_RTF = 'application/x-rtf';
-    const SAM = 'application/x-sam';
-    const SDP = 'application/sdp';
-    const SIT = 'application/x-stuffit';
-    const SLD = 'application/x-sld';
-    const SMI = 'application/smil';
-    const SMK = 'application/x-smk';
-    const SMIL = 'application/smil';
-    const SPC = 'application/x-pkcs7-certificates';
-    const SPL = 'application/futuresplash';
-    const SSM = 'application/streamingmedia';
-    const STL = 'application/vnd.ms-pki.stl';
-    const SST = 'application/vnd.ms-pki.certstore';
-    const TDF = 'application/x-tdf';
-    const TGA = 'application/x-tga';
-    const STY = 'application/x-sty';
-    const SWF = 'application/x-shockwave-flash';
-    const TG4 = 'application/x-tg4';
-    const TIF = 'application/x-tif';
-    const VDX = 'application/vnd.visio';
-    const VPG = 'application/x-vpeg005';
-    const VSD = 'application/x-vsd';
-    const VST = 'application/vnd.visio';
-    const VSW = 'application/vnd.visio';
-    const VTX = 'application/vnd.visio';
-    const TORRENT = 'application/x-bittorrent';
-    const VDA = 'application/x-vda';
-    const VND_VISIO = 'application/vnd.visio';
-    const VSS = 'application/vnd.visio';
-    const X_VST = 'application/x-vst';
-    const VSX = 'application/vnd.visio';
-    const WB1 = 'application/x-wb1';
-    const WB3 = 'application/x-wb3';
-    const WIZ = 'application/msword';
-    const WK4 = 'application/x-wk4';
-    const WKS = 'application/x-wks';
-    const WB2 = 'application/x-wb2';
-    const WK3 = 'application/x-wk3';
-    const WKQ = 'application/x-wkq';
-    const WMF = 'application/x-wmf';
-    const WMD = 'application/x-ms-wmd';
-    const WP6 = 'application/x-wp6';
-    const WPG = 'application/x-wpg';
-    const WQ1 = 'application/x-wq1';
-    const WRI = 'application/x-wri';
-    const WS = 'application/x-ws';
-    const WMZ = 'application/x-ms-wmz';
-    const WPD = 'application/x-wpd';
-    const WPL = 'application/vnd.ms-wpl';
-    const WR1 = 'application/x-wr1';
-    const WRK = 'application/x-wrk';
-    const WS2 = 'application/x-ws';
-    const XDP = 'application/vnd.adobe.xdp';
-    const XFD = 'application/vnd.adobe.xfd';
-    const XFDF = 'application/vnd.adobe.xfdf';
-    const VND_MS_EXCEL = 'application/vnd.ms-excel';
-    const XWD = 'application/x-xwd';
-    const SIS = 'application/vnd.symbian.install';
-    const X_T = 'application/x-x_t';
-    const APK = 'application/vnd.android.package-archive';
-    const X_B = 'application/x-x_b';
-    const SISX = 'application/vnd.symbian.install';
-    const IPA = 'application/vnd.iphone';
-    const XAP = 'application/x-silverlight-app';
-    const XLW = 'application/x-xlw';
-    const XPL = 'audio/scpls';
-    const ANV = 'application/x-anv';
-    const UIN = 'application/x-icq';
-    const H323 = 'text/h323';
-    const BIZ = 'text/xml; charset=utf-8';
-    const CML = 'text/xml; charset=utf-8';
-    const ASA = 'text/asa';
-    const ASP = 'text/asp';
-    const CSS = 'text/css';
-    const CSV = 'text/csv';
-    const DCD = 'text/xml; charset=utf-8';
-    const X_DTD = 'text/xml; charset=utf-8';
-    const ENT = 'text/xml; charset=utf-8';
-    const FO = 'text/xml; charset=utf-8';
-    const HTC = 'text/x-component';
-    const HTML = 'text/html; charset=utf-8';
-    const HTX = 'text/html; charset=utf-8';
-    const HTM = 'text/html; charset=utf-8';
-    const HTT = 'text/webviewhtml';
-    const JSP = 'text/html; charset=utf-8';
-    const MATH = 'text/xml; charset=utf-8';
-    const MML = 'text/xml; charset=utf-8';
-    const MTX = 'text/xml; charset=utf-8';
-    const PLG = 'text/html; charset=utf-8';
-    const X_RDF = 'text/xml; charset=utf-8';
-    const RT = 'text/vnd.rn-realtext';
-    const SOL = 'text/plain';
-    const SPP = 'text/xml; charset=utf-8';
-    const STM = 'text/html; charset=utf-8';
-    const SVG = 'text/xml; charset=utf-8';
-    const TLD = 'text/xml; charset=utf-8';
-    const TXT = 'text/plain纯文字内容';
-    const ULS = 'text/iuls';
-    const VML = 'text/xml; charset=utf-8';
-    const TSD = 'text/xml; charset=utf-8';
-    const VCF = 'text/x-vcard';
-    const VXML = 'text/xml; charset=utf-8';
-    const WML = 'text/vnd.wap.wml';
-    const WSDL = 'text/xml; charset=utf-8';
-    const WSC = 'text/scriptlet';
-    const XDR = 'text/xml; charset=utf-8';
-    const XQL = 'text/xml; charset=utf-8';
-    const XSD = 'text/xml; charset=utf-8';
-    const XSLT = 'text/xml; charset=utf-8';
-    const X_XML = 'text/xml; charset=utf-8';
-    const XQ = 'text/xml; charset=utf-8';
-    const XQUERY = 'text/xml; charset=utf-8';
-    const XSL = 'text/xml; charset=utf-8';
-    const XHTML = 'text/html; charset=utf-8';
-    const ODC = 'text/x-ms-odc';
-    const R3T = 'text/vnd.rn-realtext3d';
-    const SOR = 'text/plain';
-    const ACP = 'audio/x-mei-aac';
-    const AIF = 'audio/aiff';
-    const AIFF = 'audio/aiff';
-    const AIFC = 'audio/aiff';
-    const AU = 'audio/basic';
-    const LA1 = 'audio/x-liquid-file';
-    const LAVS = 'audio/x-liquid-secure';
-    const LMSFF = 'audio/x-la-lms';
-    const M3U = 'audio/mpegurl';
-    const MIDI = 'audio/mid';
-    const MID = 'audio/mid';
-    const MP2 = 'audio/mp2';
-    const MP3 = 'audio/mp3';
-    const MP4 = 'audio/mp4';
-    const MND = 'audio/x-musicnet-download';
-    const MP1 = 'audio/mp1';
-    const MNS = 'audio/x-musicnet-stream';
-    const MPGA = 'audio/rn-mpeg';
-    const PLS = 'audio/scpls';
-    const RAM = 'audio/x-pn-realaudio';
-    const RMI = 'audio/mid';
-    const RMM = 'audio/x-pn-realaudio';
-    const SND = 'audio/basic';
-    const WAV = 'audio/wav';
-    const WAX = 'audio/x-ms-wax';
-    const WMA = 'audio/x-ms-wma';
-    const ASF = 'video/x-ms-asf';
-    const ASX = 'video/x-ms-asf';
-    const AVI = 'video/avi';
-    const IVF = 'video/x-ivf';
-    const M1V = 'video/x-mpeg';
-    const M2V = 'video/x-mpeg';
-    const M4E = 'video/mpeg4';
-    const MOVIE = 'video/x-sgi-movie';
-    const MP2V = 'video/mpeg';
-    const X_MP4 = 'video/mpeg4';
-    const MPA = 'video/x-mpg';
-    const MPE = 'video/x-mpeg';
-    const MPG = 'video/mpg';
-    const MPEG = 'video/mpg';
-    const MPS = 'video/x-mpeg';
-    const MPV = 'video/mpg';
-    const MPV2 = 'video/mpeg';
-    const WM = 'video/x-ms-wm';
-    const WMV = 'video/x-ms-wmv';
-    const WMX = 'video/x-ms-wmx';
-    const WVX = 'video/x-ms-wvx';
-    const TIFF = 'image/tiff';
-    const FAX = 'image/fax';
-    const GIF = 'image/gif';
-    const ICON = 'image/x-icon';
-    const JFIF = 'image/jpeg';
-    const X_JPE = 'image/jpeg';
-    const JPEG = 'image/jpeg';
-    const X_JPG = 'image/jpeg';
-    const NET = 'image/pnetvue';
-    const X_PNG = 'image/png';
-    const RP = 'image/vnd.rn-realpix';
-    const X_TIF = 'image/tiff';
-    const X_TIFF = 'image/tiff';
-    const WBMP = 'image/vnd.wap.wbmp';
-    const EML = 'message/rfc822';
-    const MHT = 'message/rfc822';
-    const MHTML = 'message/rfc822';
-    const NWS = 'message/rfc822';
-    const D_907 = 'drawing/907';
-    const SLK = 'drawing/x-slk';
-    const TOP = 'drawing/x-top';
-    const JAVA_CLASS = 'java/*';
-    const JAVA = 'java/*';
-    const X_DWF = 'Model/vnd.dwf';
+    case X;
+    case OCTET_STREAM;
+    case PDF;
+    case AI;
+    case ATOM_XML;
+    case JS;
+    case EDI_X12;
+    case EDIFACT;
+    case JSON;
+    case JAVASCRIPT;
+    case OGG;
+    case RDF;
+    case RSS_XML;
+    case SOAP_XML;
+    case WOFF;
+    case XHTML_XML;
+    case XML;
+    case DTD;
+    case XOP_XML;
+    case ZIP;
+    case GZIP;
+    case XLS;
+    case X_001;
+    case X_301;
+    case X_906;
+    case A11;
+    case AWF;
+    case BMP;
+    case C4T;
+    case CAL;
+    case CDF;
+    case CEL;
+    case CG4;
+    case CIT;
+    case BOT;
+    case C90;
+    case CAT;
+    case CDR;
+    case CER;
+    case CGM;
+    case CMX;
+    case CRL;
+    case CSI;
+    case CUT;
+    case DBM;
+    case CMP;
+    case COT;
+    case CRT;
+    case DBF;
+    case DBX;
+    case DCX;
+    case DGN;
+    case DLL;
+    case DOT;
+    case DER;
+    case DIB;
+    case DOC;
+    case DRW;
+    case DWF;
+    case DXB;
+    case EDN;
+    case DWG;
+    case DXF;
+    case EMF;
+    case EPI;
+    case EPS;
+    case EXE;
+    case FDF;
+    case X_EPS;
+    case ETD;
+    case FIF;
+    case FRM;
+    case GBR;
+    case G4;
+    case GL2;
+    case HGL;
+    case HPG;
+    case HQX;
+    case HTA;
+    case GP4;
+    case HMR;
+    case HPL;
+    case HRF;
+    case ICB;
+    case ICO;
+    case IG4;
+    case III;
+    case INS;
+    case IFF;
+    case IGS;
+    case IMG;
+    case ISP;
+    case JPE;
+    case X_JAVASCRIPT;
+    case JPG;
+    case LAR;
+    case LATEX;
+    case LBM;
+    case LS;
+    case LTR;
+    case MAN;
+    case MDB;
+    case MAC;
+    case X_MDB;
+    case MFP;
+    case MI;
+    case MIL;
+    case MOCHA;
+    case MPD;
+    case MPP;
+    case MPT;
+    case MPW;
+    case MPX;
+    case MXP;
+    case NRF;
+    case OUT;
+    case P12;
+    case P7C;
+    case P7R;
+    case PC5;
+    case PCL;
+    case PDX;
+    case PGL;
+    case PKO;
+    case P10;
+    case P7B;
+    case P7M;
+    case P7S;
+    case PCI;
+    case PCX;
+    case PFX;
+    case PIC;
+    case PL;
+    case PLT;
+    case PNG;
+    case PPA;
+    case PPS;
+    case X_PPT;
+    case PRF;
+    case PRT;
+    case PS;
+    case PWZ;
+    case RA;
+    case RAS;
+    case POT;
+    case PPM;
+    case PPT;
+    case PR;
+    case PRN;
+    case X_PS;
+    case PTN;
+    case RED;
+    case RJS;
+    case RLC;
+    case RM;
+    case RAT;
+    case REC;
+    case RGB;
+    case RJT;
+    case RLE;
+    case RMF;
+    case RMJ;
+    case RMP;
+    case RMVB;
+    case RNX;
+    case RPM;
+    case RMS;
+    case RMX;
+    case RSML;
+    case RTF;
+    case RV;
+    case SAT;
+    case SDW;
+    case SLB;
+    case X_RTF;
+    case SAM;
+    case SDP;
+    case SIT;
+    case SLD;
+    case SMI;
+    case SMK;
+    case SMIL;
+    case SPC;
+    case SPL;
+    case SSM;
+    case STL;
+    case SST;
+    case TDF;
+    case TGA;
+    case STY;
+    case SWF;
+    case TG4;
+    case TIF;
+    case VDX;
+    case VPG;
+    case VSD;
+    case VST;
+    case VSW;
+    case VTX;
+    case TORRENT;
+    case VDA;
+    case VND_VISIO;
+    case VSS;
+    case X_VST;
+    case VSX;
+    case WB1;
+    case WB3;
+    case WIZ;
+    case WK4;
+    case WKS;
+    case WB2;
+    case WK3;
+    case WKQ;
+    case WMF;
+    case WMD;
+    case WP6;
+    case WPG;
+    case WQ1;
+    case WRI;
+    case WS;
+    case WMZ;
+    case WPD;
+    case WPL;
+    case WR1;
+    case WRK;
+    case WS2;
+    case XDP;
+    case XFD;
+    case XFDF;
+    case VND_MS_EXCEL;
+    case XWD;
+    case SIS;
+    case X_T;
+    case APK;
+    case X_B;
+    case SISX;
+    case IPA;
+    case XAP;
+    case XLW;
+    case XPL;
+    case ANV;
+    case UIN;
+    case H323;
+    case BIZ;
+    case CML;
+    case ASA;
+    case ASP;
+    case CSS;
+    case CSV;
+    case DCD;
+    case X_DTD;
+    case ENT;
+    case FO;
+    case HTC;
+    case HTML;
+    case HTX;
+    case HTM;
+    case HTT;
+    case JSP;
+    case MATH;
+    case MML;
+    case MTX;
+    case PLG;
+    case X_RDF;
+    case RT;
+    case SOL;
+    case SPP;
+    case STM;
+    case SVG;
+    case TLD;
+    case TXT;
+    case ULS;
+    case VML;
+    case TSD;
+    case VCF;
+    case VXML;
+    case WML;
+    case WSDL;
+    case WSC;
+    case XDR;
+    case XQL;
+    case XSD;
+    case XSLT;
+    case X_XML;
+    case XQ;
+    case XQUERY;
+    case XSL;
+    case XHTML;
+    case ODC;
+    case R3T;
+    case SOR;
+    case ACP;
+    case AIF;
+    case AIFF;
+    case AIFC;
+    case AU;
+    case LA1;
+    case LAVS;
+    case LMSFF;
+    case M3U;
+    case MIDI;
+    case MID;
+    case MP2;
+    case MP3;
+    case MP4;
+    case MND;
+    case MP1;
+    case MNS;
+    case MPGA;
+    case PLS;
+    case RAM;
+    case RMI;
+    case RMM;
+    case SND;
+    case WAV;
+    case WAX;
+    case WMA;
+    case ASF;
+    case ASX;
+    case AVI;
+    case IVF;
+    case M1V;
+    case M2V;
+    case M4E;
+    case MOVIE;
+    case MP2V;
+    case X_MP4;
+    case MPA;
+    case MPE;
+    case MPG;
+    case MPEG;
+    case MPS;
+    case MPV;
+    case MPV2;
+    case WM;
+    case WMV;
+    case WMX;
+    case WVX;
+    case TIFF;
+    case FAX;
+    case GIF;
+    case ICON;
+    case JFIF;
+    case X_JPE;
+    case JPEG;
+    case X_JPG;
+    case NET;
+    case X_PNG;
+    case RP;
+    case X_TIF;
+    case X_TIFF;
+    case WBMP;
+    case EML;
+    case MHT;
+    case MHTML;
+    case NWS;
+    case D_907;
+    case SLK;
+    case TOP;
+    case JAVA_CLASS;
+    case JAVA;
+    case X_DWF;
 
+
+    /**
+     * @param $method
+     * @return string
+     */
+    public function toString(): string
+    {
+        return match ($method) {
+            self::X => 'application/x-',
+            self::OCTET_STREAM => 'application/octet-stream',
+            self::PDF => 'application/pdf',
+            self::AI, self::EPS, self::PS => 'application/postscript',
+            self::ATOM_XML => 'application/atom+xml',
+            self::JS => 'application/ecmascript',
+            self::EDI_X12 => 'application/EDI-X12',
+            self::EDIFACT => 'application/EDIFACT',
+            self::JSON => 'application/json; charset=utf-8',
+            self::JAVASCRIPT => 'application/javascript; charset=utf-8',
+            self::OGG => 'application/ogg',
+            self::RDF => 'application/rdf+xml',
+            self::RSS_XML => 'application/rss+xml',
+            self::SOAP_XML => 'application/soap+xml',
+            self::WOFF => 'application/font-woff',
+            self::XHTML_XML => 'application/xhtml+xml',
+            self::XML => 'application/xml; charset=utf-8',
+            self::DTD => 'application/xml-dtd',
+            self::XOP_XML => 'application/xop+xml',
+            self::ZIP => 'application/zip',
+            self::GZIP => 'application/gzip',
+            self::XLS => 'application/x-xls',
+            self::X_001 => 'application/x-001',
+            self::X_301 => 'application/x-301',
+            self::X_906 => 'application/x-906',
+            self::A11 => 'application/x-a11',
+            self::AWF => 'application/vnd.adobe.workflow',
+            self::BMP => 'application/x-bmp',
+            self::C4T => 'application/x-c4t',
+            self::CAL => 'application/x-cals',
+            self::CDF => 'application/x-netcdf',
+            self::CEL => 'application/x-cel',
+            self::CG4, self::G4, self::IG4 => 'application/x-g4',
+            self::CIT => 'application/x-cit',
+            self::BOT => 'application/x-bot',
+            self::C90 => 'application/x-c90',
+            self::CAT => 'application/vnd.ms-pki.seccat',
+            self::CDR => 'application/x-cdr',
+            self::CER, self::CRT, self::DER => 'application/x-x509-ca-cert',
+            self::CGM => 'application/x-cgm',
+            self::CMX => 'application/x-cmx',
+            self::CRL => 'application/pkix-crl',
+            self::CSI => 'application/x-csi',
+            self::CUT => 'application/x-cut',
+            self::DBM => 'application/x-dbm',
+            self::CMP => 'application/x-cmp',
+            self::COT => 'application/x-cot',
+            self::DBF => 'application/x-dbf',
+            self::DBX => 'application/x-dbx',
+            self::DCX => 'application/x-dcx',
+            self::DGN => 'application/x-dgn',
+            self::DLL, self::EXE => 'application/x-msdownload',
+            self::DOT, self::DOC, self::RTF, self::WIZ => 'application/msword',
+            self::DIB => 'application/x-dib',
+            self::DRW => 'application/x-drw',
+            self::DWF => 'application/x-dwf',
+            self::DXB => 'application/x-dxb',
+            self::EDN => 'application/vnd.adobe.edn',
+            self::DWG => 'application/x-dwg',
+            self::DXF => 'application/x-dxf',
+            self::EMF => 'application/x-emf',
+            self::EPI => 'application/x-epi',
+            self::FDF => 'application/vnd.fdf',
+            self::X_EPS, self::X_PS => 'application/x-ps',
+            self::ETD => 'application/x-ebx',
+            self::FIF => 'application/fractals',
+            self::FRM => 'application/x-frm',
+            self::GBR => 'application/x-gbr',
+            self::GL2 => 'application/x-gl2',
+            self::HGL => 'application/x-hgl',
+            self::HPG => 'application/x-hpgl',
+            self::HQX => 'application/mac-binhex40',
+            self::HTA => 'application/hta',
+            self::GP4 => 'application/x-gp4',
+            self::HMR => 'application/x-hmr',
+            self::HPL => 'application/x-hpl',
+            self::HRF => 'application/x-hrf',
+            self::ICB => 'application/x-icb',
+            self::ICO => 'application/x-ico',
+            self::III => 'application/x-iphone',
+            self::INS, self::ISP => 'application/x-internet-signup',
+            self::IFF => 'application/x-iff',
+            self::IGS => 'application/x-igs',
+            self::IMG => 'application/x-img',
+            self::JPE => 'application/x-jpe',
+            self::X_JAVASCRIPT, self::LS, self::MOCHA => 'application/x-javascript',
+            self::JPG => 'application/x-jpg',
+            self::LAR => 'application/x-laplayer-reg',
+            self::LATEX => 'application/x-latex',
+            self::LBM => 'application/x-lbm',
+            self::LTR => 'application/x-ltr',
+            self::MAN => 'application/x-troff-man',
+            self::MDB => 'application/msaccess',
+            self::MAC => 'application/x-mac',
+            self::X_MDB => 'application/x-mdb',
+            self::MFP, self::SWF => 'application/x-shockwave-flash',
+            self::MI => 'application/x-mi',
+            self::MIL => 'application/x-mil',
+            self::MPD, self::MPP, self::MPT, self::MPW, self::MPX => 'application/vnd.ms-project',
+            self::MXP => 'application/x-mmxp',
+            self::NRF => 'application/x-nrf',
+            self::OUT => 'application/x-out',
+            self::P12, self::PFX => 'application/x-pkcs12',
+            self::P7C, self::P7M => 'application/pkcs7-mime',
+            self::P7R => 'application/x-pkcs7-certreqresp',
+            self::PC5 => 'application/x-pc5',
+            self::PCL => 'application/x-pcl',
+            self::PDX => 'application/vnd.adobe.pdx',
+            self::PGL => 'application/x-pgl',
+            self::PKO => 'application/vnd.ms-pki.pko',
+            self::P10 => 'application/pkcs10',
+            self::P7B, self::SPC => 'application/x-pkcs7-certificates',
+            self::P7S => 'application/pkcs7-signature',
+            self::PCI => 'application/x-pci',
+            self::PCX => 'application/x-pcx',
+            self::PIC => 'application/x-pic',
+            self::PL => 'application/x-perl',
+            self::PLT => 'application/x-plt',
+            self::PNG => 'application/x-png',
+            self::PPA, self::PPS, self::PWZ, self::POT, self::PPT => 'application/vnd.ms-powerpoint',
+            self::X_PPT => 'application/x-ppt',
+            self::PRF => 'application/pics-rules',
+            self::PRT => 'application/x-prt',
+            self::RA => 'audio/vnd.rn-realaudio',
+            self::RAS => 'application/x-ras',
+            self::PPM => 'application/x-ppm',
+            self::PR => 'application/x-pr',
+            self::PRN => 'application/x-prn',
+            self::PTN => 'application/x-ptn',
+            self::RED => 'application/x-red',
+            self::RJS => 'application/vnd.rn-realsystem-rjs',
+            self::RLC => 'application/x-rlc',
+            self::RM => 'application/vnd.rn-realmedia',
+            self::RAT => 'application/rat-file',
+            self::REC => 'application/vnd.rn-recording',
+            self::RGB => 'application/x-rgb',
+            self::RJT => 'application/vnd.rn-realsystem-rjt',
+            self::RLE => 'application/x-rle',
+            self::RMF => 'application/vnd.adobe.rmf',
+            self::RMJ => 'application/vnd.rn-realsystem-rmj',
+            self::RMP => 'application/vnd.rn-rn_music_package',
+            self::RMVB => 'application/vnd.rn-realmedia-vbr',
+            self::RNX => 'application/vnd.rn-realplayer',
+            self::RPM => 'audio/x-pn-realaudio-plugin',
+            self::RMS => 'application/vnd.rn-realmedia-secure',
+            self::RMX => 'application/vnd.rn-realsystem-rmx',
+            self::RSML => 'application/vnd.rn-rsml',
+            self::RV => 'video/vnd.rn-realvideo',
+            self::SAT => 'application/x-sat',
+            self::SDW => 'application/x-sdw',
+            self::SLB => 'application/x-slb',
+            self::X_RTF => 'application/x-rtf',
+            self::SAM => 'application/x-sam',
+            self::SDP => 'application/sdp',
+            self::SIT => 'application/x-stuffit',
+            self::SLD => 'application/x-sld',
+            self::SMI, self::SMIL => 'application/smil',
+            self::SMK => 'application/x-smk',
+            self::SPL => 'application/futuresplash',
+            self::SSM => 'application/streamingmedia',
+            self::STL => 'application/vnd.ms-pki.stl',
+            self::SST => 'application/vnd.ms-pki.certstore',
+            self::TDF => 'application/x-tdf',
+            self::TGA => 'application/x-tga',
+            self::STY => 'application/x-sty',
+            self::TG4 => 'application/x-tg4',
+            self::TIF => 'application/x-tif',
+            self::VDX, self::VST, self::VSW, self::VTX, self::VND_VISIO, self::VSS, self::VSX => 'application/vnd.visio',
+            self::VPG => 'application/x-vpeg005',
+            self::VSD => 'application/x-vsd',
+            self::TORRENT => 'application/x-bittorrent',
+            self::VDA => 'application/x-vda',
+            self::X_VST => 'application/x-vst',
+            self::WB1 => 'application/x-wb1',
+            self::WB3 => 'application/x-wb3',
+            self::WK4 => 'application/x-wk4',
+            self::WKS => 'application/x-wks',
+            self::WB2 => 'application/x-wb2',
+            self::WK3 => 'application/x-wk3',
+            self::WKQ => 'application/x-wkq',
+            self::WMF => 'application/x-wmf',
+            self::WMD => 'application/x-ms-wmd',
+            self::WP6 => 'application/x-wp6',
+            self::WPG => 'application/x-wpg',
+            self::WQ1 => 'application/x-wq1',
+            self::WRI => 'application/x-wri',
+            self::WS, self::WS2 => 'application/x-ws',
+            self::WMZ => 'application/x-ms-wmz',
+            self::WPD => 'application/x-wpd',
+            self::WPL => 'application/vnd.ms-wpl',
+            self::WR1 => 'application/x-wr1',
+            self::WRK => 'application/x-wrk',
+            self::XDP => 'application/vnd.adobe.xdp',
+            self::XFD => 'application/vnd.adobe.xfd',
+            self::XFDF => 'application/vnd.adobe.xfdf',
+            self::VND_MS_EXCEL => 'application/vnd.ms-excel',
+            self::XWD => 'application/x-xwd',
+            self::SIS, self::SISX => 'application/vnd.symbian.install',
+            self::X_T => 'application/x-x_t',
+            self::APK => 'application/vnd.android.package-archive',
+            self::X_B => 'application/x-x_b',
+            self::IPA => 'application/vnd.iphone',
+            self::XAP => 'application/x-silverlight-app',
+            self::XLW => 'application/x-xlw',
+            self::XPL, self::PLS => 'audio/scpls',
+            self::ANV => 'application/x-anv',
+            self::UIN => 'application/x-icq',
+            self::H323 => 'text/h323',
+            self::BIZ, self::CML, self::DCD, self::X_DTD, self::FO, self::ENT, self::MATH, self::MML, self::MTX, self::X_RDF, self::SPP, self::SVG, self::TLD, self::VML, self::TSD, self::VXML, self::WSDL, self::XDR, self::XSD, self::XQL, self::XSLT, self::X_XML, self::XQ, self::XQUERY, self::XSL => 'text/xml; charset=utf-8',
+            self::ASA => 'text/asa',
+            self::ASP => 'text/asp',
+            self::CSS => 'text/css',
+            self::CSV => 'text/csv',
+            self::HTC => 'text/x-component',
+            self::HTML, self::STM, self::HTX, self::HTM, self::JSP, self::PLG, self::XHTML => 'text/html; charset=utf-8',
+            self::HTT => 'text/webviewhtml',
+            self::RT => 'text/vnd.rn-realtext',
+            self::SOL, self::SOR => 'text/plain',
+            self::TXT => 'text/plain纯文字内容',
+            self::ULS => 'text/iuls',
+            self::VCF => 'text/x-vcard',
+            self::WML => 'text/vnd.wap.wml',
+            self::WSC => 'text/scriptlet',
+            self::ODC => 'text/x-ms-odc',
+            self::R3T => 'text/vnd.rn-realtext3d',
+            self::ACP => 'audio/x-mei-aac',
+            self::AIF, self::AIFF, self::AIFC => 'audio/aiff',
+            self::AU, self::SND => 'audio/basic',
+            self::LA1 => 'audio/x-liquid-file',
+            self::LAVS => 'audio/x-liquid-secure',
+            self::LMSFF => 'audio/x-la-lms',
+            self::M3U => 'audio/mpegurl',
+            self::MIDI, self::MID, self::RMI => 'audio/mid',
+            self::MP2 => 'audio/mp2',
+            self::MP3 => 'audio/mp3',
+            self::MP4 => 'audio/mp4',
+            self::MND => 'audio/x-musicnet-download',
+            self::MP1 => 'audio/mp1',
+            self::MNS => 'audio/x-musicnet-stream',
+            self::MPGA => 'audio/rn-mpeg',
+            self::RAM, self::RMM => 'audio/x-pn-realaudio',
+            self::WAV => 'audio/wav',
+            self::WAX => 'audio/x-ms-wax',
+            self::WMA => 'audio/x-ms-wma',
+            self::ASF, self::ASX => 'video/x-ms-asf',
+            self::AVI => 'video/avi',
+            self::IVF => 'video/x-ivf',
+            self::M1V, self::M2V, self::MPE, self::MPS => 'video/x-mpeg',
+            self::M4E, self::X_MP4 => 'video/mpeg4',
+            self::MOVIE => 'video/x-sgi-movie',
+            self::MP2V, self::MPV2 => 'video/mpeg',
+            self::MPA => 'video/x-mpg',
+            self::MPG, self::MPEG, self::MPV => 'video/mpg',
+            self::WM => 'video/x-ms-wm',
+            self::WMV => 'video/x-ms-wmv',
+            self::WMX => 'video/x-ms-wmx',
+            self::WVX => 'video/x-ms-wvx',
+            self::TIFF, self::X_TIF, self::X_TIFF => 'image/tiff',
+            self::FAX => 'image/fax',
+            self::GIF => 'image/gif',
+            self::ICON => 'image/x-icon',
+            self::JFIF, self::X_JPE, self::JPEG, self::X_JPG => 'image/jpeg',
+            self::NET => 'image/pnetvue',
+            self::X_PNG => 'image/png',
+            self::RP => 'image/vnd.rn-realpix',
+            self::WBMP => 'image/vnd.wap.wbmp',
+            self::EML, self::MHT, self::MHTML, self::NWS => 'message/rfc822',
+            self::D_907 => 'drawing/907',
+            self::SLK => 'drawing/x-slk',
+            self::TOP => 'drawing/x-top',
+            self::JAVA_CLASS, self::JAVA => 'java/*',
+            self::X_DWF => 'Model/vnd.dwf'
+        };
+    }
 }

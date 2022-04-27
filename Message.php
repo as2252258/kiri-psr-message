@@ -151,8 +151,8 @@ trait Message
 	/**
 	 * @param string $protocol
 	 */
-	private function resolve_status(string $protocol)
-	{
+	private function resolve_status(string $protocol): void
+    {
 		if ($this instanceof ResponseInterface) {
 			[$sch, $status, $message] = explode(' ', $protocol);
 			[$sch, $protocolVersion] = explode('/', $sch);
@@ -166,8 +166,8 @@ trait Message
 	 * @param $key
 	 * @param $value
 	 */
-	private function addRequestHeader($key, $value)
-	{
+	private function addRequestHeader($key, $value): void
+    {
 		$this->headers[$key] = [$value];
 	}
 

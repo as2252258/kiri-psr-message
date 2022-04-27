@@ -31,10 +31,7 @@ class Response implements ResponseInterface
 	 */
 	public function __construct()
 	{
-		$contentType = Config::get('response', [
-			'format'  => ContentType::JSON,
-			'charset' => 'utf-8',
-		]);
+		$contentType = Config::get('response', ['format'  => ContentType::JSON]);
 		$this->withContentType($contentType['format'] ?? ContentType::JSON);
 	}
 
@@ -298,11 +295,11 @@ class Response implements ResponseInterface
 	}
 
 
-	/**
-	 * @param string $type
-	 * @return ResponseInterface
-	 */
-	public function withContentType(string $type): ResponseInterface
+    /**
+     * @param ContentType $type
+     * @return ResponseInterface
+     */
+	public function withContentType(ContentType $type): ResponseInterface
 	{
 		return $this->__call__()->{__FUNCTION__}($type);
 	}
