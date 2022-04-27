@@ -158,7 +158,7 @@ class Response implements ResponseInterface
     {
         $this->stream->write(json_encode($data));
 
-        return $this->withContentType($contentType)->withCharset('utf-8');
+        return $this->withContentType($contentType);
     }
 
 
@@ -175,7 +175,7 @@ class Response implements ResponseInterface
 
         $this->stream->write((string)$data);
 
-        return $this->withContentType($contentType)->withCharset('utf-8');
+        return $this->withContentType($contentType);
     }
 
 
@@ -195,25 +195,11 @@ class Response implements ResponseInterface
      * @param string $contentType
      * @return static
      */
-    public function xml($data, string $contentType = 'application/xml'): static
+    public function xml($data, string $contentType = 'application/xml; charset=utf-8'): static
     {
         $this->stream->write(Help::toXml($data));
 
-        return $this->withContentType($contentType)->withCharset('utf-8');
-    }
-
-
-    /**
-     * @param string $charset
-     * @return $this
-     */
-    public function withCharset(string $charset): static
-    {
-        $type = explode('charset', $this->getContentType())[0];
-        $this->withContentType(
-            rtrim($type, ';') . ';charset=' . $charset
-        );
-        return $this;
+        return $this->withContentType($contentType);
     }
 
 
@@ -259,8 +245,7 @@ class Response implements ResponseInterface
     public function jsonTo(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
     {
         $this->stream->write(Json::to($code, $message, $data, $count));
-        return $this->withContentType(ContentType::JSON)
-            ->withCharset('utf-8');
+        return $this->withContentType(ContentType::JSON);
     }
 
 
@@ -281,7 +266,7 @@ class Response implements ResponseInterface
         $response['exPageInfo'] = $exPageInfo;
         $response['param'] = $data;
         $this->stream->write(Json::encode($response));
-        return $this->withContentType(ContentType::JSON)->withCharset('utf-8');
+        return $this->withContentType(ContentType::JSON);
     }
 
 
