@@ -185,7 +185,7 @@ class Response implements ResponseInterface
      */
     public function withContent(mixed $content): static
     {
-        $this->getBody()->write($content);
+        $this->stream->write($content);
         return $this;
     }
 
