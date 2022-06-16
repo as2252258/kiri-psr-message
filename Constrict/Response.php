@@ -12,8 +12,8 @@ use Kiri\Exception\ConfigException;
 use Kiri\Message\ContentType;
 use Kiri\Message\Response as Psr7Response;
 use Kiri\Message\ServerRequest as RequestMessage;
-use Kiri\Server\ServerManager;
 use Psr\Http\Message\StreamInterface;
+use Kiri\Server\Server;
 
 
 /**
@@ -383,7 +383,7 @@ class Response implements ResponseInterface
 		if (!Context::hasContext('client.info.property')) {
 			$request = Context::getContext(RequestInterface::class, new RequestMessage());
 
-			$server = Kiri::getDi()->get(ServerManager::class)->getServer();
+			$server = Kiri::getDi()->get(Server::class)->getServer();
 
 			$clientInfo = $server->getClientInfo($request->getClientId());
 
