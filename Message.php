@@ -33,9 +33,9 @@ trait Message
 
 
 	/**
-	 * @var array|null
+	 * @var array<Cookie>
 	 */
-	protected ?array $cookieParams = [];
+	protected array $cookieParams = [];
 
 
 	/**
@@ -248,21 +248,21 @@ trait Message
 
 
 	/**
-	 * @return null|array
+	 * @return array<Cookie>
 	 */
-	public function getCookieParams(): ?array
+	public function getCookieParams(): array
 	{
 		return $this->cookieParams;
 	}
 
 
 	/**
-	 * @param array|null $cookies
+	 * @param Cookie $cookies
 	 * @return static
 	 */
-	public function withCookieParams(?array $cookies): static
+	public function withCookieParams(Cookie $cookies): static
 	{
-		$this->cookieParams = $cookies;
+		$this->cookieParams[] = $cookies;
 		return $this;
 	}
 
