@@ -257,10 +257,10 @@ trait Message
 
 
 	/**
-	 * @param Cookie $cookies
+	 * @param array $cookies
 	 * @return static
 	 */
-	public function withCookieParams(Cookie $cookies): static
+	public function withCookieParams(array $cookies): static
 	{
 		$this->cookieParams[] = $cookies;
 		return $this;
