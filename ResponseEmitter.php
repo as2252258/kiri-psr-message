@@ -36,6 +36,10 @@ class ResponseEmitter implements Emitter
 		}
 		if (is_array($emitter->getCookieParams())) {
 			foreach ($emitter->getCookieParams() as $name => $cookie) {
+				if (!is_array($cookie)) {
+					var_dump($cookie);
+					continue;
+				}
 				$response->cookie($name, ...$cookie);
 			}
 		}
