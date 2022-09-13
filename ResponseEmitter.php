@@ -4,10 +4,8 @@ namespace Kiri\Message;
 
 use Exception;
 use Kiri\Annotation\Inject;
-use Kiri\Message\Constrict\OnDownloadInterface;
 use Kiri\Message\Constrict\ResponseInterface;
 use Kiri\Message\Constrict\RequestInterface;
-use Kiri\Message\Response;
 
 /**
  *
