@@ -248,7 +248,7 @@ trait Message
 
 
 	/**
-	 * @return array<Cookie>
+	 * @return array
 	 */
 	public function getCookieParams(): array
 	{
