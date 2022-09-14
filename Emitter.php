@@ -6,12 +6,12 @@ use Kiri\Message\Constrict\ResponseInterface;
 
 interface Emitter
 {
-
-
+	
+	
 	/**
 	 * @param mixed $response
 	 * @param ResponseInterface $emitter
-	 * @return mixed
+	 * @return void
 	 */
 	public function sender(mixed $response, ResponseInterface $emitter): void;
 

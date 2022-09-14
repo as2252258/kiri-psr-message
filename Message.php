@@ -179,6 +179,9 @@ trait Message
 	#[Pure] public function getHeaderLine($name): string|null
 	{
 		if ($this->hasHeader($name)) {
+			if (!is_array($this->headers[$name])) {
+				return $this->headers[$name];
+			}
 			return implode(';', $this->headers[$name]);
 		}
 		return null;
@@ -248,7 +251,7 @@ trait Message
 
 
 	/**
-	 * @return array<Cookie>
+	 * @return array
 	 */
 	public function getCookieParams(): array
 	{
