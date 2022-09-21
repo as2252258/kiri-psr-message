@@ -324,10 +324,14 @@ class Request implements RequestInterface
 	public function int(string $name, bool $required = false): ?int
 	{
 		$int = $this->_getParsedBody($name);
-		if (is_null($int) && $required) {
-			throw new \Exception('Required param "' . $name . '"');
+		if (!is_null($int)) {
+			return (int)$int;
 		}
-		return (int)$int;
+		if ($required) {
+			throw new \Exception('Required param "' . $name . '"');
+		} else {
+			return null;
+		}
 	}
 
 
@@ -340,10 +344,14 @@ class Request implements RequestInterface
 	public function float(string $name, bool $required = false): ?float
 	{
 		$int = $this->_getParsedBody($name);
-		if (is_null($int) && $required) {
-			throw new \Exception('Required param "' . $name . '"');
+		if (!is_null($int)) {
+			return (float)$int;
 		}
-		return (float)$int;
+		if ($required) {
+			throw new \Exception('Required param "' . $name . '"');
+		} else {
+			return null;
+		}
 	}
 
 
@@ -356,10 +364,14 @@ class Request implements RequestInterface
 	public function date(string $name, bool $required = false): ?string
 	{
 		$int = $this->_getParsedBody($name);
-		if (is_null($int) && $required) {
-			throw new \Exception('Required param "' . $name . '"');
+		if (!is_null($int)) {
+			return (string)$int;
 		}
-		return (string)$int;
+		if ($required) {
+			throw new \Exception('Required param "' . $name . '"');
+		} else {
+			return null;
+		}
 	}
 
 
@@ -372,10 +384,14 @@ class Request implements RequestInterface
 	public function timestamp(string $name, bool $required = false): ?int
 	{
 		$int = $this->_getParsedBody($name);
-		if (is_null($int) && $required) {
-			throw new \Exception('Required param "' . $name . '"');
+		if (!is_null($int)) {
+			return (int)$int;
 		}
-		return (int)$int;
+		if ($required) {
+			throw new \Exception('Required param "' . $name . '"');
+		} else {
+			return null;
+		}
 	}
 
 
@@ -388,10 +404,14 @@ class Request implements RequestInterface
 	public function string(string $name, bool $required = false): ?string
 	{
 		$int = $this->_getParsedBody($name);
-		if (is_null($int) && $required) {
-			throw new \Exception('Required param "' . $name . '"');
+		if (!is_null($int)) {
+			return (string)$int;
 		}
-		return (string)$int;
+		if ($required) {
+			throw new \Exception('Required param "' . $name . '"');
+		} else {
+			return null;
+		}
 	}
 
 
