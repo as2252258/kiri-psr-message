@@ -65,27 +65,6 @@ class ServerRequest extends Request implements ServerRequestInterface
 
 
 	/**
-	 * @param \Swoole\Http\Request $request
-	 * @return static|ServerRequestInterface
-	 * @throws \Exception
-	 */
-	public static function createServerRequest(\Swoole\Http\Request $request): static|ServerRequestInterface
-	{
-		$serverRequest = new ServerRequest();
-		$serverRequest->withData($request->getData());
-		$serverRequest->withServerParams($request->server);
-		$serverRequest->withServerTarget($request);
-		$serverRequest->withCookieParams($request->cookie ?? []);
-		$serverRequest->withUri(Uri::parseUri($request));
-		$serverRequest->withQueryParams($request->get);
-		$serverRequest->withUploadedFiles($request->files);
-		$serverRequest->withMethod($request->getMethod());
-		$serverRequest->withParsedBody($request->post);
-		return $serverRequest;
-	}
-
-
-	/**
 	 * @return null|array
 	 */
 	public function getServerParams(): ?array

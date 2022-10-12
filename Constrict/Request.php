@@ -50,23 +50,6 @@ class Request implements RequestInterface
 
 
 	/**
-	 * @param \Swoole\Http\Request $request
-	 * @return Request
-	 * @throws \Exception
-	 */
-	public static function create(\Swoole\Http\Request $request): Request
-	{
-		$serverRequest = ServerRequest::createServerRequest($request);
-
-		Context::setContext(ResponseInterface::class, new Response());
-
-		Context::setContext(RequestInterface::class, $serverRequest);
-
-		return Kiri::getDi()->get(Request::class);
-	}
-
-
-	/**
 	 * @return string
 	 */
 	public function getProtocolVersion(): string
