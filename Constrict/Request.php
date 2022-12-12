@@ -2,14 +2,13 @@
 
 namespace Kiri\Message\Constrict;
 
+use JetBrains\PhpStorm\Pure;
+use Kiri;
+use Kiri\Di\Context;
 use Kiri\Message\FileInterface;
 use Kiri\Message\Handler\AuthorizationInterface;
-use Kiri\Message\Response;
 use Kiri\Message\ServerRequest;
 use Kiri\Message\Uploaded;
-use JetBrains\PhpStorm\Pure;
-use Kiri\Context;
-use Kiri;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
 

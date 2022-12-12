@@ -7,13 +7,13 @@ namespace Kiri\Message\Constrict;
 use JetBrains\PhpStorm\Pure;
 use Kiri;
 use Kiri\Abstracts\Config;
-use Kiri\Context;
+use Kiri\Di\Context;
 use Kiri\Exception\ConfigException;
 use Kiri\Message\ContentType;
 use Kiri\Message\Response as Psr7Response;
 use Kiri\Message\ServerRequest as RequestMessage;
-use Psr\Http\Message\StreamInterface;
 use Kiri\Server\Server;
+use Psr\Http\Message\StreamInterface;
 
 
 /**
