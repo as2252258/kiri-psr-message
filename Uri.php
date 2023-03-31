@@ -202,7 +202,7 @@ class Uri implements UriInterface
         $server = $request->server;
         $header = $request->header;
         $uri = new static();
-        $uri = $uri->withScheme(!empty($server['https']) && $server['https'] !== 'off' ? 'https' : 'http');
+        $uri = $uri->withScheme(isset($server['https']) && $server['https'] !== 'off' ? 'https' : 'http');
         if (isset($request->header['x-forwarded-proto'])) {
             $uri->withScheme($request->header['x-forwarded-proto'])->withPort(443);
         }
@@ -221,7 +221,7 @@ class Uri implements UriInterface
             $uri = $uri->withHost($server['server_addr']);
         } elseif (isset($header['host'])) {
             $hasPort = true;
-            if (strpos($header['host'], ':')) {
+            if (str_contains($header['host'], ':')) {
                 [$host, $port] = explode(':', $header['host'], 2);
                 if ($port != $uri->getDefaultPort()) {
                     $uri = $uri->withPort($port);

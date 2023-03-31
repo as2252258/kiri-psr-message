@@ -213,13 +213,13 @@ class Response implements ResponseInterface
 	{
 		return $this->__call__()->{__FUNCTION__}($code, $reasonPhrase);
 	}
-
-
-    /**
-     * @param mixed $content
-     * @return ResponseInterface|Psr7Response
-     */
-	public function withContent(mixed $content): ResponseInterface|Psr7Response
+	
+	
+	/**
+	 * @param mixed $content
+	 * @return ResponseInterface
+	 */
+	public function withContent(mixed $content): ResponseInterface
 	{
 		return $this->__call__()->{__FUNCTION__}($content);
 	}
@@ -404,18 +404,15 @@ class Response implements ResponseInterface
 	{
 		return $this->__call__()->{__FUNCTION__}($code, $message, $data, $count);
 	}
-
-
+	
+	
 	/**
-	 * @param int $code
-	 * @param mixed|string $message
 	 * @param mixed|array $data
-	 * @param mixed|int $count
 	 * @return ResponseInterface
 	 */
-	public function jsonTo(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
+	public function jsonTo(array $data = []): ResponseInterface
 	{
-		return $this->__call__()->{__FUNCTION__}($code, $message, $data, $count);
+		return $this->__call__()->{__FUNCTION__}($data);
 	}
 
 

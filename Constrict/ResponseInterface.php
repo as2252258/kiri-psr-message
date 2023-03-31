@@ -4,11 +4,11 @@ namespace Kiri\Message\Constrict;
 
 
 use Kiri\Message\ContentType;
-use Kiri\Message\Response;
+use Kiri\Message\Response as MResponse;
 use JetBrains\PhpStorm\Pure;
 
 /**
- * @mixin Response
+ * @mixin MResponse
  */
 interface ResponseInterface extends \Psr\Http\Message\ResponseInterface
 {
@@ -49,17 +49,14 @@ interface ResponseInterface extends \Psr\Http\Message\ResponseInterface
 	 * @param mixed $count
 	 * @return ResponseInterface
 	 */
-	public function send(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface;
-
-
+	public function send(int $code, string $message = '', array|string $data = [], int $count = 0): ResponseInterface;
+	
+	
 	/**
-	 * @param int $code
-	 * @param mixed $message
 	 * @param mixed $data
-	 * @param mixed $count
 	 * @return ResponseInterface
 	 */
-	public function jsonTo(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface;
+	public function jsonTo(array $data): ResponseInterface;
 
 
 	/**

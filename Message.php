@@ -122,7 +122,7 @@ trait Message
 	{
 		[$headers, $body] = explode("\r\n\r\n", $headerString);
 
-		$this->stream = Kiri::getDi()->make(Stream::class, ['']);
+		$this->stream = new Stream();
 		$this->stream->write($body);
 
 		return $this->slip_headers($headers);
@@ -204,10 +204,11 @@ trait Message
 	 */
 	public function withHeader($name, $value): static
 	{
-		if (!is_array($value)) {
-			$value = [$value];
+		if (is_array($value)) {
+			$this->headers[$name] = $value;
+		} else {
+			$this->headers[$name] = [$value];
 		}
-		$this->headers[$name] = $value;
 		return $this;
 	}
 

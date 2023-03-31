@@ -31,12 +31,12 @@ class ResponseEmitter implements Emitter
 		foreach ($emitter->getHeaders() as $name => $values) {
 			$response->header($name, implode(';', $values));
 		}
-		foreach ($emitter->getCookieParams() as $name => $cookie) {
-			if (!is_array($cookie)) {
-				continue;
-			}
-			$response->cookie($name, ...$cookie);
-		}
+//		foreach ($emitter->getCookieParams() as $name => $cookie) {
+//			if (!is_array($cookie)) {
+//				continue;
+//			}
+//			$response->cookie($name, ...$cookie);
+//		}
 		$response->setStatusCode($emitter->getStatusCode());
 		$response->header('Server', 'swoole');
 		$response->header('Swoole-Version', swoole_version());
