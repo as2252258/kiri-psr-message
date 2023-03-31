@@ -231,6 +231,10 @@ class Response implements ResponseInterface
 	public function send(int $code, mixed $message = '', mixed $data = [], mixed $count = 0): ResponseInterface
 	{
 		if ($code == 0) {
+			if (is_array($message)) {
+				$data = $message;
+				$message = '';
+			}
 			$this->stream->write(Json::jsonSuccess($data, $message, $count));
 		} else {
 			$this->stream->write(Json::jsonFail($message, $code, $data, $count));
