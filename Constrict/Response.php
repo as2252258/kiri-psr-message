@@ -376,24 +376,6 @@ class Response implements ResponseInterface
 
 
 	/**
-	 * @return array
-	 */
-	public function getClientInfo(): array
-	{
-		if (!Context::hasContext('client.info.property')) {
-			$request = Context::getContext(RequestInterface::class, new RequestMessage());
-
-			$server = Kiri::getDi()->get(Server::class)->getServer();
-
-			$clientInfo = $server->getClientInfo($request->getClientId());
-
-			return Context::setContext('client.info.property', $clientInfo);
-		}
-		return Context::getContext('client.info.property');
-	}
-
-
-	/**
 	 * @param int $code
 	 * @param mixed|string $message
 	 * @param mixed|array $data
