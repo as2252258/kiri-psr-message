@@ -120,12 +120,12 @@ trait Message
 	 */
 	public function withData(string $headerString): static
 	{
-		[$headers, $body] = explode("\r\n\r\n", $headerString);
-
-		$this->stream = new Stream();
-		$this->stream->write($body);
-
-		return $this->slip_headers($headers);
+		$headers = explode("\r\n\r\n", $headerString);
+		if (isset($headers[1])) {
+			$this->stream = new Stream();
+			$this->stream->write($headers[1]);
+		}
+		return $this->slip_headers($headers[0]);
 	}
 
 
@@ -141,8 +141,11 @@ trait Message
 		$this->resolve_status(array_shift($headers));
 
 		foreach ($headers as $header) {
-			[$key, $value] = explode(': ', $header);
-			$this->withHeader($key, $value);
+			$keyValue = explode(': ', $header);
+			if (!isset($keyValue[1])) {
+				$keyValue[1] = '';
+			}
+			$this->withHeader(...$keyValue);
 		}
 		return $this;
 	}
