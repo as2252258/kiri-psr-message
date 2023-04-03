@@ -83,7 +83,7 @@ class Response implements ResponseInterface
 	 */
 	public function __call__(): Psr7Response
 	{
-		return Context::getContext(ResponseInterface::class, new Psr7Response());
+		return Context::get(ResponseInterface::class, new Psr7Response());
 	}
 
 
@@ -367,11 +367,11 @@ class Response implements ResponseInterface
 	 */
 	public function getClientId(): int
 	{
-		if (!Context::hasContext('client.id.property')) {
-			$request = Context::getContext(RequestInterface::class, new RequestMessage());
-			return Context::setContext('client.id.property', $request->getClientId());
+		if (!Context::exists('client.id.property')) {
+			$request = Context::get(RequestInterface::class, new RequestMessage());
+			return Context::set('client.id.property', $request->getClientId());
 		}
-		return (int)Context::getContext('client.id.property');
+		return (int)Context::get('client.id.property');
 	}
 
 

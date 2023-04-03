@@ -22,7 +22,7 @@ class Request implements RequestInterface
 	 */
 	private function __call__(): ServerRequest
 	{
-		return Context::getContext(RequestInterface::class, new ServerRequest());
+		return Context::get(RequestInterface::class, new ServerRequest());
 	}
 
 

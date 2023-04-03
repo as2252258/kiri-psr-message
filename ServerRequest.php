@@ -119,7 +119,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 	public function getParsedBody(): object|array|null
 	{
 		if (empty($this->parsedBody)) {
-			$callback = Context::getContext(self::PARSE_BODY);
+			$callback = Context::get(self::PARSE_BODY);
 
 			$this->parsedBody = $callback($this->getBody());
 		}
@@ -140,7 +140,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 			}
 			return $data;
 		};
-		Context::setContext(self::PARSE_BODY, $functions);
+		Context::set(self::PARSE_BODY, $functions);
 		return $this;
 	}
 
