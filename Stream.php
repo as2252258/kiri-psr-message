@@ -76,6 +76,9 @@ class Stream implements StreamInterface
 	 */
 	public function getSize(): int
 	{
+		if ($this->size == 0 && !is_resource($this->content)) {
+			$this->size = strlen($this->content);
+		}
 		return $this->size;
 	}
 
@@ -161,7 +164,6 @@ class Stream implements StreamInterface
 			}
 		} else {
 			$this->content = $string;
-			$this->size = strlen($string);
 		}
 		return $this->size;
 	}
