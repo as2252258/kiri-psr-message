@@ -35,11 +35,21 @@ class Response implements ResponseInterface
 	
 	/**
 	 * __construct
-	 * @throws ReflectionException|Exception
+	 * @throws Exception
 	 */
 	public function __construct()
 	{
-		$this->stream = Kiri::getDi()->make(Stream::class, ['']);
+		$this->stream = copy(Stream::class);
+	}
+	
+	
+	/**
+	 * @return void
+	 */
+	public function __clone(): void
+	{
+		// TODO: Implement __clone() method.
+		$this->stream = copy(Stream::class);
 	}
 	
 	

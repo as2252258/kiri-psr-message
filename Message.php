@@ -322,10 +322,4 @@ trait Message
 		return $this->getHeaderLine('Access-Control-Request-Method');
 	}
 
-
-	protected function setStore($key, callable $callback)
-	{
-
-	}
-
 }

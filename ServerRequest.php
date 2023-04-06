@@ -5,6 +5,7 @@ namespace Kiri\Message;
 use Kiri\Di\Context;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
+use Swoole\Http\Request as ShRequest;
 
 
 /**
@@ -40,7 +41,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 	protected ?array $uploadedFiles;
 
 
-	protected \Swoole\Http\Request $serverTarget;
+	protected ?ShRequest $serverTarget;
 
 
 	/**
@@ -54,10 +55,10 @@ class ServerRequest extends Request implements ServerRequestInterface
 	}
 
 	/**
-	 * @param \Swoole\Http\Request $server
+	 * @param ShRequest $server
 	 * @return static
 	 */
-	public function withServerTarget(\Swoole\Http\Request $server): static
+	public function withServerTarget(ShRequest $server): static
 	{
 		$this->serverTarget = $server;
 		return $this;
@@ -65,14 +66,25 @@ class ServerRequest extends Request implements ServerRequestInterface
 	
 	
 	/**
-	 * @return \Swoole\Http\Request
+	 * @return ShRequest|null
 	 */
-	public function getServerTarget(): \Swoole\Http\Request
+	public function getServerTarget(): ?ShRequest
 	{
 		return $this->serverTarget;
 	}
-
-
+	
+	
+	/**
+	 * @return void
+	 */
+	public function __clone(): void
+	{
+		// TODO: Implement __clone() method.
+		$this->serverTarget = null;
+		$this->stream = copy(Stream::class);
+		$this->authority = null;
+	}
+	
 	/**
 	 * @return null|array
 	 */
