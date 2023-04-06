@@ -212,16 +212,6 @@ class Stream implements StreamInterface
 	
 	
 	/**
-	 * @return void
-	 */
-	public function __clone(): void
-	{
-		// TODO: Implement __clone() method.
-		$this->content = '';
-	}
-	
-	
-	/**
 	 * @param null $key
 	 * @return array
 	 */
