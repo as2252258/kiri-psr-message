@@ -517,4 +517,13 @@ class Request implements RequestInterface
 	{
 		return $this->__call__()->{__FUNCTION__}();
 	}
+	
+	
+	/**
+	 * @return \Swoole\Http\Request
+	 */
+	public function getServerTarget(): \Swoole\Http\Request
+	{
+		return $this->__call__()->{__FUNCTION__}();
+	}
 }

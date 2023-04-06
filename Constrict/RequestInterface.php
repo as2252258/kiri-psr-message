@@ -14,6 +14,9 @@ use JetBrains\PhpStorm\Pure;
  */
 interface RequestInterface extends \Psr\Http\Message\RequestInterface
 {
+	
+	
+	public function getServerTarget(): \Swoole\Http\Request;
 
 
 	/**

@@ -62,6 +62,15 @@ class ServerRequest extends Request implements ServerRequestInterface
 		$this->serverTarget = $server;
 		return $this;
 	}
+	
+	
+	/**
+	 * @return \Swoole\Http\Request
+	 */
+	public function getServerTarget(): \Swoole\Http\Request
+	{
+		return $this->serverTarget;
+	}
 
 
 	/**
