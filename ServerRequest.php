@@ -81,7 +81,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 	{
 		// TODO: Implement __clone() method.
 		$this->serverTarget = null;
-		$this->stream = copy(Stream::class);
+		$this->stream = replica(Stream::class);
 		$this->authority = null;
 	}
 	

@@ -39,7 +39,7 @@ class Response implements ResponseInterface
 	 */
 	public function __construct()
 	{
-		$this->stream = copy(Stream::class);
+		$this->stream = replica(Stream::class);
 	}
 	
 	
@@ -49,7 +49,7 @@ class Response implements ResponseInterface
 	public function __clone(): void
 	{
 		// TODO: Implement __clone() method.
-		$this->stream = copy(Stream::class);
+		$this->stream = replica(Stream::class);
 	}
 	
 	
