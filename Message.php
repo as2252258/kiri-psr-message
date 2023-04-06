@@ -120,10 +120,11 @@ trait Message
 	 */
 	public function withData(string $headerString): static
 	{
-		$this->stream = new Stream();
-		$this->stream->write($headerString);
-		
-		return $this;
+		$headers = explode("\r\n\r\n", $headerString);
+		if (isset($headers[1])) {
+			$this->stream = new Stream();
+			$this->stream->write($headers[1]);
+		}
 		return $this->slip_headers($headers[0]);
 	}
 
