@@ -73,18 +73,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 		return $this->serverTarget;
 	}
 	
-	
-	/**
-	 * @return void
-	 */
-	public function __clone(): void
-	{
-		// TODO: Implement __clone() method.
-		$this->serverTarget = null;
-		$this->stream = replica(Stream::class);
-		$this->authority = null;
-	}
-	
+
 	/**
 	 * @return null|array
 	 */

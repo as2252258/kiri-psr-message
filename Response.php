@@ -39,17 +39,7 @@ class Response implements ResponseInterface
 	 */
 	public function __construct()
 	{
-		$this->stream = replica(Stream::class);
-	}
-	
-	
-	/**
-	 * @return void
-	 */
-	public function __clone(): void
-	{
-		// TODO: Implement __clone() method.
-		$this->stream = replica(Stream::class);
+		$this->stream = new Stream();
 	}
 	
 	
