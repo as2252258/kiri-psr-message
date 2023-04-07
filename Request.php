@@ -77,7 +77,7 @@ class Request implements RequestInterface
 	 * @param string $method
 	 * @return RequestInterface
 	 */
-	public function withMethod($method): RequestInterface
+	public function withMethod(string $method): RequestInterface
 	{
 		$this->method = $method;
 		return $this;
