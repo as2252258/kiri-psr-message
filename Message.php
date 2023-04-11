@@ -177,9 +177,9 @@ trait Message
 
 	/**
 	 * @param $name
-	 * @return string|null
+	 * @return string
 	 */
-	#[Pure] public function getHeaderLine($name): string|null
+	#[Pure] public function getHeaderLine($name): string
 	{
 		if ($this->hasHeader($name)) {
 			if (!is_array($this->headers[$name])) {
@@ -187,7 +187,7 @@ trait Message
 			}
 			return implode(';', $this->headers[$name]);
 		}
-		return null;
+		return '*';
 	}
 
 
@@ -297,27 +297,27 @@ trait Message
 
 
 	/**
-	 * @return string|null
+	 * @return string
 	 */
-	#[Pure] public function getAccessControlAllowOrigin(): ?string
+	#[Pure] public function getAccessControlAllowOrigin(): string
 	{
 		return $this->getHeaderLine('Access-Control-Allow-Origin');
 	}
 
 
 	/**
-	 * @return string|null
+	 * @return string
 	 */
-	#[Pure] public function getAccessControlAllowHeaders(): ?string
+	#[Pure] public function getAccessControlAllowHeaders(): string
 	{
 		return $this->getHeaderLine('Access-Control-Allow-Headers');
 	}
 
 
 	/**
-	 * @return string|null
+	 * @return string
 	 */
-	#[Pure] public function getAccessControlRequestMethod(): ?string
+	#[Pure] public function getAccessControlRequestMethod(): string
 	{
 		return $this->getHeaderLine('Access-Control-Request-Method');
 	}
