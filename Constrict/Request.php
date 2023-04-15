@@ -49,6 +49,26 @@ class Request implements RequestInterface
 
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function hasQueryParams(string $name): bool
+	{
+		return $this->__call__()->{__FUNCTION__}($name);
+	}
+
+
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function hasPostParams(string $name): bool
+	{
+		return $this->__call__()->{__FUNCTION__}($name);
+	}
+
+
+	/**
 	 * @return string
 	 */
 	public function getProtocolVersion(): string
@@ -517,8 +537,8 @@ class Request implements RequestInterface
 	{
 		return $this->__call__()->{__FUNCTION__}();
 	}
-	
-	
+
+
 	/**
 	 * @return \Swoole\Http\Request
 	 */

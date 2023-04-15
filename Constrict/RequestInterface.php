@@ -20,6 +20,20 @@ interface RequestInterface extends \Psr\Http\Message\RequestInterface
 
 
 	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function hasQueryParams(string $name): bool;
+
+
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function hasPostParams(string $name): bool;
+
+
+	/**
 	 * @param string $method
 	 * @return bool
 	 */

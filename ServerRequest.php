@@ -63,8 +63,28 @@ class ServerRequest extends Request implements ServerRequestInterface
 		$this->serverTarget = $server;
 		return $this;
 	}
-	
-	
+
+
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function hasQueryParams(string $name): bool
+	{
+		return isset($this->queryParams[$name]);
+	}
+
+
+	/**
+	 * @param string $name
+	 * @return bool
+	 */
+	public function hasPostParams(string $name): bool
+	{
+		return isset($this->getParsedBody()[$name]);
+	}
+
+
 	/**
 	 * @return ShRequest|null
 	 */
@@ -72,7 +92,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 	{
 		return $this->serverTarget;
 	}
-	
+
 
 	/**
 	 * @return null|array

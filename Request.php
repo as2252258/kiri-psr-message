@@ -94,17 +94,17 @@ class Request implements RequestInterface
 	}
 
 
-    /**
-     * @return string|null
-     */
-    #[Pure] public function getRequestIp(): ?string
-    {
-        $headers = $this->getHeaders();
-        if (!empty($headers['x-forwarded-for'])) return $headers['x-forwarded-for'][0] ?? null;
-        if (!empty($headers['request-ip'])) return $headers['request-ip'][0] ?? null;
-        if (!empty($headers['remote_addr'])) return $headers['remote_addr'][0] ?? null;
-        return NULL;
-    }
+	/**
+	 * @return string|null
+	 */
+	#[Pure] public function getRequestIp(): ?string
+	{
+		$headers = $this->getHeaders();
+		if (!empty($headers['x-forwarded-for'])) return $headers['x-forwarded-for'][0] ?? null;
+		if (!empty($headers['request-ip'])) return $headers['request-ip'][0] ?? null;
+		if (!empty($headers['remote_addr'])) return $headers['remote_addr'][0] ?? null;
+		return NULL;
+	}
 
 
 	/**
